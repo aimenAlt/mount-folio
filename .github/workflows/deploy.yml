@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main  # Replace 'main' with your default branch name if different
 
 jobs:
   build-deploy:
@@ -23,6 +23,11 @@ jobs:
 
       - name: Build the project
         run: npm run build
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'aimenAlt'
+          git config --global user.email 'ymnghost@gmail.com'
 
       - name: Deploy to GitHub Pages
         env:
