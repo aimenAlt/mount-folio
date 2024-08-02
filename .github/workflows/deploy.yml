@@ -24,6 +24,9 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Ensure CNAME file exists
+        run: echo 'altaiyeb.info' > ./public/CNAME
+
       - name: Configure Git
         run: |
           git config --global user.name 'aimenAlt'
