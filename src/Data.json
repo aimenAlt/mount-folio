@@ -158,6 +158,7 @@
         "title": "Cell Phone Auction App",
         "subTitle": "Java / PostgreSQL",
         "text": "Developed a Java-based console application for cell phone auctions with interfaces for clients, employees, and managers. Managed user details, auctions, and transactions using PostgreSQL, and processed JSON requests between front and back-end.",
+        "link": "https://github.com/aimenAlt/CellPhoneAuction",
         "effect": "fade-up",
         "duration": "500",
         "delay": "200"
@@ -168,6 +169,7 @@
         "title": "Crypto Mutual Funds",
         "subTitle": "React.js / Node.js",
         "text": "Developed a full-stack app to track investments using React.js for the front end and Node.js and Express.js for the back end. Created a PostgreSQL database for managing investor data, integrated a cryptocurrency API for real-time updates, and implemented algorithms for calculating investment percentages and returns.",
+        "link": "https://github.com/aimenAlt/crypto-mutual-fund",
         "effect": "fade-up",
         "duration": "500",
         "delay": "300"
@@ -178,6 +180,7 @@
         "title": "YouTube - ShadowC",
         "subTitle": "TypeScript / SvelteKit",
         "text": "Developed a YouTube clone with full front-end and back-end integration using TypeScript and SvelteKit. Implemented GraphQL for efficient data querying and used Tailwind for responsive UI design.",
+        "link": "https://github.com/aimenAlt/ShadowC-Youtube",
         "effect": "fade-up",
         "duration": "500",
         "delay": "400"

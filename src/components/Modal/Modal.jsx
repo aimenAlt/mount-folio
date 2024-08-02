@@ -1,6 +1,6 @@
 import './Modal.scss';
 
-const Modal = ({ img, title, subTitle, modalClose, text }) => {
+const Modal = ({ img, title, subTitle, modalClose, text, link }) => {
   const modalStyle = {
     backgroundColor: 'rgba(0,0,0,0.8)',
     display: 'block',
@@ -21,7 +21,10 @@ const Modal = ({ img, title, subTitle, modalClose, text }) => {
             <div className="st-flex-center">
               <img src={img} />
             </div>
-            <h6 className="modal-subtitle">{subTitle}</h6>
+            <span>
+              <h6 className="modal-subtitle">{subTitle} </h6>
+              <p className="modal-subtitle"><a href={link}>Github Repository </a></p>
+            </span>
             <p>{text}</p>
           </div>
         </div>
