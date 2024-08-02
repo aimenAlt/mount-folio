@@ -14,10 +14,6 @@ const Skill = ({ data }) => {
     AOS.refreshHard();
   }, []);
 
-  // const handleAOSComplete = (element) => {
-  //   const progressBar = element.querySelector('.st-progressbar');
-  //   progressBar.classList.add('st-progressbar-animated');
-  // };
 
   const { title, text, skills } = data;
 
@@ -49,7 +45,7 @@ const Skill = ({ data }) => {
                   data-aos={element.effect}
                   data-aos-duration={element.duration}
                   data-aos-delay={element.delay}
-                  onTransitionEnd={() => handleAOSComplete(this)}
+                  // onTransitionEnd={() => handleAOSComplete(this)}
                 >
                   <div className="st-progressbar-heading">
                     <h3 className="st-progressbar-title">{element.title}</h3>

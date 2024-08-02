@@ -36,7 +36,7 @@ const Header = () => {
           <div className="st-main-header-in">
             <div className="st-main-header-left">
               <Link className="st-site-branding" to='/' id="hero">
-                <img src="/images/logotemp.png" alt="Davis" width="149" height="40" />
+                <img src="/images/logo.png" alt="Davis" width="149" height="40" />
               </Link>            </div>
             <div className="st-main-header-right">
               <div className="st-nav">
