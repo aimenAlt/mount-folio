@@ -3,7 +3,7 @@ name: Build and Merge to gh-pages
 on:
   push:
     branches:
-      - master
+      - master  # Replace 'master' with your default branch name if different
 
 jobs:
   build-merge:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16'  # Specify the Node.js version you need
 
       - name: Install dependencies
         run: npm install
@@ -29,9 +29,19 @@ jobs:
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
 
+      - name: Move build directory to a temporary location
+        run: mv build ../build-temp
+
+      - name: Checkout gh-pages branch
+        run: |
+          git fetch
+          git checkout gh-pages || git checkout --orphan gh-pages
+
+      - name: Move build directory back
+        run: mv ../build-temp/* .
+
       - name: Commit build directory
         run: |
-          git checkout -b gh-pages
-          git add -f build
+          git add -f .
           git commit -m 'Add build output'
           git push origin gh-pages --force
