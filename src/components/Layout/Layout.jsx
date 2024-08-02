@@ -15,8 +15,6 @@ const Layout = ({ socialData }) => {
     }, 1000);
   }, []);
 
-  console.log('socialLinks layout');
-  console.log(socialData);
   return (
     <>
       {isLoading ? <Preloader /> : (

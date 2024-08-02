@@ -62,7 +62,16 @@ const PortfolioSection = ({ data }) => {
         </div>
         <div className="st-height-b100 st-height-lg-b80"></div>
       </section>
-      {modal && <Modal img={tempData[1]} title={tempData[2]} subTitle={tempData[3]} text={tempData[4]} modalClose={modalClose} />}
+      {modal &&
+        <Modal
+          img={tempData[1]}
+          title={tempData[2]}
+          subTitle={tempData[3]}
+          text={tempData[4]}
+          link={tempData[5]}
+          modalClose={modalClose}
+        />
+      }
     </>
   );
 };

@@ -7,8 +7,6 @@ import WaterWave from 'react-water-wave';
 
 const Hero = ({ data, socialData }) => {
   const { title, text, imgAuthor, bgImgLink } = data;
-  // console.log('her3');
-  // console.log(socialData);
 
   return (
     <WaterWave id="home" className="st-hero st-style2 st-bg st-dynamic-bg st-ripple-version" imageUrl={bgImgLink}>
