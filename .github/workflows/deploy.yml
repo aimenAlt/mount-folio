@@ -29,6 +29,9 @@ jobs:
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
 
+      - name: Reset any local changes
+        run: git reset --hard
+
       - name: Switch to gh-pages branch
         run: |
           git fetch origin gh-pages
