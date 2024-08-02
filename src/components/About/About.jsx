@@ -12,7 +12,7 @@ const About = ({ data }) => {
         <div className="row">
           <div className="col-lg-6 ">
             <div className="st-about-img-wrap">
-              <div className="st-about-img st-bg" style={{ backgroundImage: `url(${imgLink})`}} data-aos="fade-right" data-aos-duration="800" data-aos-delay="400"></div>
+              <div className="st-about-img st-bg" style={{ backgroundImage: `url(${imgLink})`, borderRadius: '10px' }} data-aos="fade-right" data-aos-duration="800" data-aos-delay="400"></div>
             </div>
             <div className="st-height-b0 st-height-lg-b30"></div>
           </div>
