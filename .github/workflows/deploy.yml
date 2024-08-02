@@ -29,10 +29,19 @@ jobs:
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
 
-      - name: Copy build files to gh-pages branch
+      - name: Stash changes
+        run: git stash
+
+      - name: Switch to gh-pages branch
         run: |
           git fetch origin gh-pages
-          git switch gh-pages
+          git checkout gh-pages
+
+      - name: Apply stashed changes
+        run: git stash pop
+
+      - name: Copy build files to gh-pages branch
+        run: |
           rm -rf *
           cp -r ../build/* .
           git add .
