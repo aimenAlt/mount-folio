@@ -10,8 +10,8 @@ const PortfolioSection = ({ data }) => {
   const [modal, setModal] = useState(false);
   const [tempData, setTempData] = useState([]);
 
-  const getData = (imgLink, title, subTitle, text) => {
-    let tempData = [imgLink, title, subTitle, text];
+  const getData = (imgLink, title, subTitle, text, link) => {
+    let tempData = [imgLink, title, subTitle, text, link];
     setTempData(item => [1, ...tempData]);
     setModal(true);
   }

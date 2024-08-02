@@ -8,17 +8,16 @@ import 'aos/dist/aos.css';
 const Skill = ({ data }) => {
   useEffect(() => {
     AOS.init({
-      // Customize AOS settings if needed
       duration: 800,
     });
 
     AOS.refreshHard();
   }, []);
 
-  const handleAOSComplete = (element) => {
-    const progressBar = element.querySelector('.st-progressbar');
-    progressBar.classList.add('st-progressbar-animated');
-  };
+  // const handleAOSComplete = (element) => {
+  //   const progressBar = element.querySelector('.st-progressbar');
+  //   progressBar.classList.add('st-progressbar-animated');
+  // };
 
   const { title, text, skills } = data;
 

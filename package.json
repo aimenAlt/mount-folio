@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://altaiyeb.info",
+  "homepage": "https://www.altaiyeb.info",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
