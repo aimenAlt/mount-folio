@@ -24,24 +24,28 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Check dist directory
+        run: ls -la dist
+
       - name: Configure Git
         run: |
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
-
-      - name: Move build directory to a temporary location
-        run: mv build ../build-temp
 
       - name: Checkout gh-pages branch
         run: |
           git fetch
           git checkout gh-pages || git checkout --orphan gh-pages
 
-      - name: Move build directory back
-        run: mv ../build-temp/* .
+      - name: Clear old files
+        run: |
+          git rm -rf .
 
-      - name: Commit build directory
+      - name: Copy dist contents to current directory
+        run: cp -r dist/* .
+
+      - name: Commit dist contents
         run: |
           git add -f .
-          git commit -m 'Add build output'
+          git commit -m 'Add dist output'
           git push origin gh-pages --force
