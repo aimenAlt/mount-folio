@@ -1,4 +1,4 @@
-name: Build and Merge to gh-pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master  # Replace 'master' with your default branch name if different
 
 jobs:
-  build-merge:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,18 +29,9 @@ jobs:
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
 
-      - name: Checkout gh-pages branch
+      - name: Deploy to GitHub Pages
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}  # Use the PAT stored as a secret
         run: |
-          git clone --branch gh-pages https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/aimenAlt/mount-folio.git gh-pages
-
-      - name: Copy build files
-        run: |
-          rm -rf gh-pages/*
-          cp -r build/* gh-pages/
-
-      - name: Commit and push changes
-        working-directory: gh-pages
-        run: |
-          git add .
-          git commit -m "Update build files"
-          git push origin gh-pages
+          git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/aimenAlt/mount-folio.git
+          npm run deploy
