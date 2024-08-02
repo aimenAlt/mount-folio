@@ -8,7 +8,7 @@ const ResumeSection = ({ data }) => {
   return (
     <section id="resume" className="st-dark-bg">
       <div className="st-height-b100 st-height-lg-b80"></div>
-      <SectionHeading title={"Resume"} />
+      <SectionHeading title={"Background"} />
       <div className="container"  data-aos="fade-up"
               data-aos-duration="800" data-aos-delay="200">
         <div className="row">
