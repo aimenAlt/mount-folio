@@ -24,28 +24,17 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: Check dist directory
-        run: ls -la dist
-
       - name: Configure Git
         run: |
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
 
-      - name: Checkout gh-pages branch
+      - name: Copy build files to gh-pages branch
         run: |
-          git fetch
-          git checkout gh-pages || git checkout --orphan gh-pages
-
-      - name: Clear old files
-        run: |
-          git rm -rf .
-
-      - name: Copy dist contents to current directory
-        run: cp -r dist/* .
-
-      - name: Commit dist contents
-        run: |
-          git add -f .
-          git commit -m 'Add dist output'
-          git push origin gh-pages --force
+          git fetch origin gh-pages
+          git switch gh-pages
+          rm -rf *
+          cp -r ../build/* .
+          git add .
+          git commit -m "Update build files"
+          git push origin gh-pages
