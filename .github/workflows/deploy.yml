@@ -29,22 +29,18 @@ jobs:
           git config --global user.name 'aimenAlt'
           git config --global user.email 'ymnghost@gmail.com'
 
-      - name: Reset any local changes
-        run: git reset --hard
-
-      - name: Switch to gh-pages branch
+      - name: Checkout gh-pages branch
         run: |
-          git fetch origin gh-pages
-          git checkout gh-pages
+          git clone --branch gh-pages https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/aimenAlt/mount-folio.git gh-pages
 
-      - name: Clean old files
+      - name: Copy build files
         run: |
-          git rm -rf .
-          git clean -fxd
+          rm -rf gh-pages/*
+          cp -r build/* gh-pages/
 
-      - name: Copy build files to gh-pages branch
+      - name: Commit and push changes
+        working-directory: gh-pages
         run: |
-          cp -r ../build/* .
           git add .
           git commit -m "Update build files"
           git push origin gh-pages
