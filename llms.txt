@@ -16,7 +16,7 @@ I'm also careful about what I claim. If I tell you a system saved time, I'll tel
 
 Every release used to be walked across four repositories by hand. So I built the thing that walks it. Press play.
 
-- Deploys stopped batching: Teams had been deferring releases rather than hand-trace package ownership. Removing the handoff removed the reason to wait.
+- Deploys stopped batching: Teams had been deferring releases rather than hand-trace package ownership. Removing the handoff removed the reason to wait. Early adoption merged 14+ automated bumps.
 - A defect class closed: Shared-package versions used to ship decoupled from the changes they belonged to. Reconciliation makes that state unrepresentable.
 - The merge stayed human: Deliberately. The system generates a validated draft PR and stops.
 
@@ -26,12 +26,12 @@ Every release used to be walked across four repositories by hand. So I built the
 - Merge queues that actually validate (CI correctness): A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.
 - One component, many brands (Multi-brand platform): Theme and intent abstractions that separate behavior and semantics from brand presentation, so shared React infrastructure serves several brand experiences without forking a component per brand.
 - Sticky-stack: independent roots, one stack (Browser platform): The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.
-- CMS to components, server-side (Rendering): I contributed to the CMS modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.
+- CMS to components, server-side (Rendering): I contributed to the Sitecore to Contentful modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.
 - A React bootcamp I wrote and taught (Enablement): Four hours, a progressive repository with structured branches, exercises and live instruction for interns. Turning what I know into something the team keeps is the same instinct as building a platform, just aimed at people.
 
 ## Toolkit
 
-React, TypeScript, Next.js · SSR, GitHub Actions, Reusable workflows, Composite actions, Changesets, Syncpack, Merge queues, Monorepos, Semantic versioning, Jest · Cypress, Storybook, Contentful
+React, TypeScript, Next.js · SSR, GitHub Actions, Reusable workflows, Composite actions, Changesets, Syncpack, Merge queues, Monorepos, Semantic versioning, Jest · Cypress, Storybook, Contentful, Node.js, Sitecore, i18n, Webpack, ESLint, on-call / incident response
 
 ## Contact
 
