@@ -4,11 +4,17 @@ nav {
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 24px;
   padding: 14px var(--gutter);
-  background: oklch(0.15 0.012 62 / 0.9);
-  border-bottom: 1px solid var(--line-soft);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 200ms var(--ease), border-color 200ms var(--ease);
+
+  &.is-scrolled {
+    background: var(--bg);
+    border-bottom-color: var(--line-soft);
+  }
 }
 
 .brand {
@@ -17,19 +23,37 @@ nav {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
+  flex: none;
+}
+
+.nav-toggle {
+  display: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid oklch(0.36 0.012 62);
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--ink);
+  flex: none;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 26px;
+  margin-left: auto;
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
   a {
-    color: oklch(0.70 0.01 72);
+    color: oklch(0.78 0.01 72);
 
     &.is-here { color: oklch(0.84 0.10 76); }
   }
@@ -40,16 +64,43 @@ nav {
   color: var(--bg) !important;
   padding: 7px 14px;
   border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex: none;
 
   &:hover { background: oklch(0.88 0.10 76); }
 }
 
 @media (max-width: 1020px) {
-  .nav-links a[href="#stakes"],
-  .nav-links a[href="#work"],
-  .nav-links a[href="#about"] { display: none; }
+  nav { gap: 12px; }
+  .nav-toggle { display: inline-flex; align-items: center; }
+  .nav-cta { margin-left: auto; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 16px var(--gutter) 22px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line-soft);
+
+    &.is-open { display: flex; }
+  }
 }
 
 @media (max-width: 700px) {
-  nav { padding: 12px 18px; }
+  nav { padding: 12px 18px; gap: 8px; }
+
+  .nav-links {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }

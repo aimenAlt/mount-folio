@@ -87,6 +87,7 @@ export default function Machine({ data }) {
             <button
               type="button"
               className={`seg-btn${mode === 'before' ? ' is-on' : ''}`}
+              aria-pressed={mode === 'before'}
               onClick={() => switchMode('before')}
             >
               By hand
@@ -94,6 +95,7 @@ export default function Machine({ data }) {
             <button
               type="button"
               className={`seg-btn${mode === 'after' ? ' is-on' : ''}`}
+              aria-pressed={mode === 'after'}
               onClick={() => switchMode('after')}
             >
               Automated
@@ -102,6 +104,7 @@ export default function Machine({ data }) {
           <button
             type="button"
             className="btn-mono"
+            aria-pressed={running}
             onClick={() => (running ? stop() : play())}
           >
             {running ? '❙❙ Pause' : '▶ Play'}

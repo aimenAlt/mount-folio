@@ -54,14 +54,14 @@ export default function Stakes() {
 
           <div className="col">
             <div className="card">
-              <h4>Runtime failures, not build failures</h4>
+              <h3>Runtime failures, not build failures</h3>
               <p>
                 A mismatched pair often compiles fine. It breaks in the browser, on
                 real traffic, where the first person to notice is a customer.
               </p>
             </div>
             <div className="card">
-              <h4>Visual and behavioral drift</h4>
+              <h3>Visual and behavioral drift</h3>
               <p>
                 Half-updated shared components render inconsistently across brands
                 and pages — the kind of bug that gets filed five separate times
@@ -69,7 +69,7 @@ export default function Stakes() {
               </p>
             </div>
             <div className="card">
-              <h4>Nothing was watching for it</h4>
+              <h3>Nothing was watching for it</h3>
               <p>
                 Versions could ship decoupled from the changes they belonged to with
                 no check that would catch the drift. Diagnosis started from the

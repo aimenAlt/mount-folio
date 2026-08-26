@@ -13,7 +13,7 @@ export default function Work({ projects }) {
         <p className="kicker cyan rowline">
           <span>Also on my desk</span>
           <span className="rule" />
-          <span className="muted">tap any row</span>
+          <span className="muted">on desktop, tap any row</span>
         </p>
         <h2 className="display sm">Six more systems</h2>
 

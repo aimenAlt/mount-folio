@@ -177,7 +177,7 @@
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
 }
 
@@ -196,7 +196,7 @@
 }
 
 @media (max-width: 1020px) {
-  .metrics { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
 
   .chain-foot {
     flex-direction: column;

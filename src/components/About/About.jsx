@@ -43,11 +43,11 @@ export default function About({ data }) {
         <div className="col">
           <div className="card cv">
             {data.cv.map((job, i) => (
-              <Fragment key={job.org}>
+              <Fragment key={`${job.org}-${job.when}`}>
                 {i > 0 && <hr />}
                 <div>
                   <div className="cv-top">
-                    <h4>{job.org}</h4>
+                    <h3>{job.org}</h3>
                     <span className="mono muted">{job.when}</span>
                   </div>
                   <p>{job.role}</p>
@@ -57,7 +57,7 @@ export default function About({ data }) {
             <hr />
             {data.education.map((ed) => (
               <div key={ed.degree}>
-                <h4>{ed.degree}</h4>
+                <h3>{ed.degree}</h3>
                 <p>{ed.school}</p>
               </div>
             ))}

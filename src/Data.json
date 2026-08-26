@@ -60,7 +60,7 @@
     "outcomes": [
       {
         "title": "Deploys stopped batching",
-        "body": "Teams had been deferring releases rather than hand-trace package ownership. Removing the handoff removed the reason to wait."
+        "body": "Teams had been deferring releases rather than hand-trace package ownership. Removing the handoff removed the reason to wait. Early adoption merged 14+ automated bumps."
       },
       {
         "title": "A defect class closed",
@@ -72,9 +72,10 @@
       }
     ],
     "metrics": [
-      { "value": "14+", "tone": "gold", "label": "automated bumps merged in early adoption" },
+      { "value": "20–40 min", "tone": "gold", "label": "of manual coordination removed per propagation" },
       { "value": "13", "tone": "cyan", "label": "packages in a representative build" },
-      { "value": "2+", "tone": "cyan", "label": "brands on the shared platform" }
+      { "value": "2+", "tone": "cyan", "label": "brands on the shared platform" },
+      { "value": "daily+", "tone": "gold", "label": "release cadence the automation keeps up with" }
     ]
   },
 
@@ -106,8 +107,8 @@
     {
       "kicker": "Rendering",
       "title": "CMS to components, server-side",
-      "body": "I contributed to the CMS modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.",
-      "tags": ["Contentful", "Next.js", "SSR / hydration"]
+      "body": "I contributed to the Sitecore to Contentful modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.",
+      "tags": ["Sitecore", "Contentful", "Next.js", "SSR / hydration"]
     },
     {
       "kicker": "Enablement",
@@ -133,7 +134,8 @@
       "Developer Experience"
     ],
     "cv": [
-      { "org": "GoDaddy", "when": "2022 — now", "role": "Software Development Engineer II · Remote" },
+      { "org": "GoDaddy", "when": "Jan 2025 — now", "role": "Software Development Engineer II · Remote" },
+      { "org": "GoDaddy", "when": "Jul 2022 — Jan 2025", "role": "Software Development Engineer · Remote" },
       { "org": "Revature", "when": "2021 — 2022", "role": "Software Engineer · Verizon engagement" }
     ],
     "education": [
@@ -144,7 +146,8 @@
       "React", "TypeScript", "Next.js · SSR", "GitHub Actions",
       "Reusable workflows", "Composite actions", "Changesets", "Syncpack",
       "Merge queues", "Monorepos", "Semantic versioning", "Jest · Cypress",
-      "Storybook", "Contentful"
+      "Storybook", "Contentful", "Node.js", "Sitecore", "i18n", "Webpack",
+      "ESLint", "on-call / incident response"
     ]
   },
 

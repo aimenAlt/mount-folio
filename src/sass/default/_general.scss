@@ -32,9 +32,19 @@ a {
 
 button { font: inherit; color: inherit; }
 
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 // Everything sits above the ambient canvas. Bands are translucent rather than
 // blurred, so the mesh shows through for free.
-header, section, footer, nav { position: relative; z-index: 1; }
+header, section, footer { position: relative; z-index: 1; }
+
+section,
+header#top {
+  scroll-margin-top: 72px;
+}
 
 section { padding: 88px var(--gutter); }
 
