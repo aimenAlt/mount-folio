@@ -1,55 +1,76 @@
-import PropTypes from 'prop-types';
+import { Fragment, useState } from 'react';
+import useReveal from '../../hooks/useReveal';
 import './About.scss';
-import SectionHeading from '../SectionHeading/SectionHeading';
 
-const About = ({ data }) => {
-  const { imgLink, title, subtitle, text, details, cvPdf } = data;
+export default function About({ data }) {
+  const [open, setOpen] = useState(false);
+  const [ref, shown] = useReveal();
+  const last = data.trajectory.length - 1;
+
   return (
-    <section id="about" className="st-about-wrap">
-      <div className="st-height-b100 st-height-lg-b80"></div>
-      <SectionHeading title={"About Me"} />
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 ">
-            <div className="st-about-img-wrap">
-              <div className="st-about-img st-bg" style={{ backgroundImage: `url(${imgLink})`, borderRadius: '10px' }} data-aos="fade-right" data-aos-duration="800" data-aos-delay="400"></div>
+    <section id="about" className={`band reveal${shown ? ' is-in' : ''}`} ref={ref}>
+      <div className="wrap two about-grid">
+        <div>
+          <p className="kicker gold">About</p>
+          <h2 className="display sm">{data.heading}</h2>
+          <p className="sub">{data.sub}</p>
+
+          <button
+            type="button"
+            className="btn-mono"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? 'Less —' : 'More +'}
+          </button>
+
+          <div className={`disclose${open ? ' is-open' : ''}`}>
+            {data.more.map((para) => (
+              <p className="body" key={para.slice(0, 24)}>{para}</p>
+            ))}
+            <p className="kicker cyan">The trajectory</p>
+            <div className="traj">
+              {data.trajectory.map((step, i) => (
+                <Fragment key={step}>
+                  <span className={i === last ? 'on' : undefined}>{step}</span>
+                  {i < last && <b>→</b>}
+                </Fragment>
+              ))}
             </div>
-            <div className="st-height-b0 st-height-lg-b30"></div>
           </div>
-          <div className="col-lg-6">
-            <div className="st-vertical-middle">
-              <div className="st-vertical-middle-in">
-                <div className={`st-text-block st-style1`} data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-                  <h2 className="st-text-block-title">{title}</h2>
-                  <h4 className="st-text-block-subtitle">{subtitle}</h4>
-                  <div className="st-text-block-text">
-                    <p>{text}</p>
+        </div>
+
+        <div className="col">
+          <div className="card cv">
+            {data.cv.map((job, i) => (
+              <Fragment key={job.org}>
+                {i > 0 && <hr />}
+                <div>
+                  <div className="cv-top">
+                    <h4>{job.org}</h4>
+                    <span className="mono muted">{job.when}</span>
                   </div>
-                  <ul className="st-text-block-details st-mp0">
-                    {details.map((item, index) => (
-                      <li key={index}>
-                        <span>{item.title}</span> : <span>{item.info}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="st-text-block-btn">
-                    <a className='st-btn st-style1 st-color1' href={cvPdf} download>Download CV</a>
-                  </div>
+                  <p>{job.role}</p>
                 </div>
+              </Fragment>
+            ))}
+            <hr />
+            {data.education.map((ed) => (
+              <div key={ed.degree}>
+                <h4>{ed.degree}</h4>
+                <p>{ed.school}</p>
               </div>
+            ))}
+          </div>
+
+          <div className="card">
+            <p className="kicker gold">Toolkit</p>
+            <div className="chips">
+              {data.toolkit.map((t) => <span key={t}>{t}</span>)}
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-About.propTypes = {
-  data: PropTypes.object
-}
-
-export default About;
-
-
-

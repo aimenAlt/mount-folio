@@ -1,0 +1,103 @@
+.stakes-grid {
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.pkg {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 15px 17px;
+  border-radius: 11px;
+}
+
+// Coprime periods: these two never re-align. That is the point of the graphic.
+.pkg-ok {
+  background: oklch(0.24 0.024 76);
+  border: 1px solid oklch(0.50 0.07 76);
+  animation: desyncA 5.5s ease-in-out infinite;
+}
+
+.pkg-bad {
+  background: oklch(0.25 0.045 32);
+  border: 1px solid oklch(0.52 0.14 32);
+  animation: desyncB 7.3s ease-in-out infinite;
+}
+
+@keyframes desyncA {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+@keyframes desyncB {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
+}
+
+.fracture {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0 2px;
+
+  span {
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg,
+      oklch(0.60 0.14 32) 0 6px,
+      transparent 6px 12px);
+  }
+
+  em {
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: oklch(0.70 0.14 32);
+  }
+}
+
+.prod {
+  padding: 17px;
+  border-radius: 11px;
+  background: oklch(0.28 0.06 32);
+  border: 1px solid oklch(0.58 0.16 32);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.blast {
+  padding: 38px 36px;
+  border-radius: 20px;
+  background: oklch(0.22 0.045 32);
+  border-color: oklch(0.42 0.09 32);
+
+  .body {
+    color: oklch(0.80 0.02 40);
+    font-size: 17px;
+    max-width: 40em;
+    margin: 0;
+  }
+
+  em { font-style: italic; }
+}
+
+.blast-lead {
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.6vw, 34px);
+  line-height: 1.22;
+  color: var(--ink);
+  margin: 0 0 16px;
+  max-width: 26em;
+  text-wrap: pretty;
+}

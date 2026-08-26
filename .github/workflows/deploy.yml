@@ -3,7 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Replace 'master' with your default branch name if different
+      - master
+
+permissions:
+  contents: write
 
 jobs:
   build-deploy:
@@ -11,21 +14,21 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'  # Specify the Node.js version you need
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build the project
         run: npm run build
 
       - name: Ensure CNAME file exists
-        run: echo 'altaiyeb.info' > ./public/CNAME
+        run: echo 'altaiyeb.info' > ./dist/CNAME
 
       - name: Configure Git
         run: |
@@ -34,7 +37,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}  # Use the PAT stored as a secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/aimenAlt/mount-folio.git
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/aimenAlt/mount-folio.git
           npm run deploy

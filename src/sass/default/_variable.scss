@@ -1,12 +1,30 @@
-// Base Color
-$base-color1: #fec544;
-$base-color2: #a9adb8;
-$base-color3: #fdfeff;
-$base-color4: #232935;
+// Global tokens. Kept as CSS custom properties (not Sass variables) so they
+// stay readable in devtools and can be themed at runtime.
 
-// Dark Color
-$dark-color1: #151b29;
-$dark-color2: #070d1b;
-$dark-color3: #0a101e;
-$dark-color4: #101624;
-$dark-color5: #3f4551;
+:root {
+  --bg:        oklch(0.15 0.012 62);
+  --bg-band:   oklch(0.185 0.013 62);
+  --bg-red:    oklch(0.17 0.020 32);
+  --card:      oklch(0.215 0.014 62);
+  --card-2:    oklch(0.24 0.014 62);
+  --line:      oklch(0.30 0.012 62);
+  --line-soft: oklch(0.26 0.012 62);
+
+  --ink:   oklch(0.94 0.008 82);
+  --ink-2: oklch(0.80 0.01 78);
+  --ink-3: oklch(0.72 0.01 76);
+  --ink-4: oklch(0.56 0.01 74);
+
+  --gold:     oklch(0.82 0.12 76);
+  --gold-dim: oklch(0.50 0.07 76);
+  --cyan:     oklch(0.78 0.13 196);
+  --red:      oklch(0.68 0.15 32);
+
+  --serif: Newsreader, Georgia, serif;
+  --sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --wrap: 1080px;
+  --gutter: clamp(32px, 6vw, 92px);
+}

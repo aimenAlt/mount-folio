@@ -1,257 +1,167 @@
 {
-  "heroData": {
-    "homeHero": {
-      "imgAuthor": "/images/section/hero-img.jpg",
-      "bgImgLink": "/images/background/hero-bg-1.jpg",
-      "title": "Hi, I am <span>Aimen Altaiyeb</span>",
-      "text": "Software Development Engineer @ GoDaddy. I specialize in transforming user-friendly UX designs into responsive components, enhanced with engaging micro-interactions."
-    }
-  },
-  "aboutData": {
-    "imgLink": "/images/section/about.jpg",
-    "cvPdf": "/Aimen_Altaiyeb_Resume.pdf",
-    "title": "Turning ideas into impactful digital experiences.",
-    "subtitle": "Software Engineer",
-    "text": "As a Software Engineer at GoDaddy in Texas, I create user-friendly and efficient full-stack applications. I'm known for my positive energy, willingness to help, and keen debugging skills. I enjoy working in collaborative environments and constantly improving through feedback. I specialize in turning UX designs into responsive components with micro-interactions for a seamless user experience.",
-    "details": [
-      {
-        "title": "Phone",
-        "info": "+1 202-876-8876"
-      },
-      {
-        "title": "Email",
-        "info": "aimen@altaiyeb.info"
-      },
-      {
-        "title": "Location",
-        "info": "Texas, USA"
-      },
-      {
-        "title": "Language",
-        "info": "English, Arabic"
-      },
-      {
-        "title": "Authorization",
-        "info": "US Citizen"
-      }
+  "brand": "Aimen Altaiyeb",
+
+  "nav": [
+    { "label": "The machine", "href": "#machine" },
+    { "label": "Why it mattered", "href": "#stakes" },
+    { "label": "Work", "href": "#work" },
+    { "label": "About", "href": "#about" }
+  ],
+
+  "hero": {
+    "kicker": "Austin, TX · open to remote",
+    "headline": ["I build the layer", "underneath", "feature teams."],
+    "lede": "Frontend platform engineer at GoDaddy. My users are other engineers.",
+    "legend": [
+      { "swatch": "gold", "label": "Shared packages I maintain" },
+      { "swatch": "dim", "label": "Rendering layer" },
+      { "swatch": "cyan", "label": "Brand surfaces" }
     ]
   },
-  "serviceData": {
-    "expertise": [
+
+  "machine": {
+    "kicker": "Case study 01",
+    "meta": "GoDaddy · 4 repositories",
+    "heading": "Every release used to be walked across four repositories by hand.",
+    "sub": "So I built the thing that walks it. Press play.",
+    "chain": {
+      "before": [
+        ["Component library change", "auto"],
+        ["Changeset created", "auto"],
+        ["Package published", "auto"],
+        ["Hunt down published versions", "human"],
+        ["Identify synchronized group", "human"],
+        ["Edit dependency config", "human"],
+        ["Coordinate related packages", "human"],
+        ["Run Syncpack", "human"],
+        ["Regenerate lockfile", "human"],
+        ["Branch, commit, push", "human"],
+        ["Open rendering-app PR", "human"],
+        ["Transfer release context", "human"],
+        ["CI validation", "auto"],
+        ["Repair version mismatch", "human"],
+        ["Merge", "human"]
+      ],
+      "after": [
+        ["Component library publishes", "auto"],
+        ["Release metadata emitted", "auto"],
+        ["Central orchestration validates", "auto"],
+        ["Rendering app notified", "auto"],
+        ["Resolve synchronized group", "auto"],
+        ["Coalesce overlapping bumps", "auto"],
+        ["Syncpack reconciliation", "auto"],
+        ["Draft PR generated", "auto"],
+        ["Slack notification", "auto"],
+        ["CI validation", "auto"],
+        ["Review and merge", "human"],
+        ["Bump metadata cleaned up", "auto"]
+      ]
+    },
+    "outcomes": [
       {
-        "imgLink": "./images/icon/icon2.png",
-        "title": "React Component Development",
-        "text": "Developing reusable and modular React components for dynamic web applications.",
-        "effect": "zoom-out-up",
-        "duration": "500",
-        "delay": "200"
+        "title": "Deploys stopped batching",
+        "body": "Teams had been deferring releases rather than hand-trace package ownership. Removing the handoff removed the reason to wait."
       },
       {
-        "imgLink": "./images/icon/icon4.png",
-        "title": "Front-End Engineering",
-        "text": "Creating responsive and engaging user interfaces with HTML, CSS, and JavaScript.",
-        "effect": "zoom-out-up",
-        "duration": "500",
-        "delay": "300"
+        "title": "A defect class closed",
+        "body": "Shared-package versions used to ship decoupled from the changes they belonged to. Reconciliation makes that state unrepresentable."
       },
       {
-        "imgLink": "./images/icon/icon6.png",
-        "title": "CMS Workflow Optimization",
-        "text": "Enhancing content management systems for efficient content updates and management.",
-        "effect": "zoom-out-up",
-        "duration": "500",
-        "delay": "400"
-      },
-      {
-        "imgLink": "./images/icon/icon3.png",
-        "title": "Full-Stack Development",
-        "text": "Building robust applications with both front-end and back-end technologies.",
-        "effect": "zoom-out-up",
-        "duration": "500",
-        "delay": "500"
-      },
-      {
-        "imgLink": "./images/icon/icon1.png",
-        "title": "Automated Testing",
-        "text": "Implementing comprehensive testing strategies to ensure application reliability.",
-        "effect": "zoom-out-up",
-        "duration": "500",
-        "delay": "600"
-      },
-      {
-        "imgLink": "./images/icon/icon5.png",
-        "title": "CI/CD Integration",
-        "text": "Utilizing continuous integration and deployment pipelines for seamless code delivery.",
-        "effect": "zoom-out-up",
-        "duration": "500",
-        "delay": "700"
-      }
-    ]
-  },
-  "skillData": {
-    "title": "Skills & Proficiencies",
-    "text": "As a proactive and enthusiastic Software Engineer, I focus on crafting user-friendly and efficient applications across the full stack. Known for my positive energy and readiness to assist, I thrive in collaborative environments and consistently seek to refine my skills through constructive feedback.",
-    "skills": [
-      {
-        "title": "React",
-        "progress": "95%",
-        "effect": "fade-up",
-        "duration": "400",
-        "delay": "200"
-      },
-      {
-        "title": "Node.js",
-        "progress": "90%",
-        "effect": "fade-up",
-        "duration": "500",
-        "delay": "300"
-      },
-      {
-        "title": "HTML & CSS",
-        "progress": "85%",
-        "effect": "fade-up",
-        "duration": "600",
-        "delay": "400"
-      },
-      {
-        "title": "TypeScript",
-        "progress": "80%",
-        "effect": "fade-up",
-        "duration": "700",
-        "delay": "500"
-      },
-      {
-        "title": "Jest Unit Testing",
-        "progress": "75%",
-        "effect": "fade-up",
-        "duration": "800",
-        "delay": "600"
-      },
-      {
-        "title": "SQL",
-        "progress": "75%",
-        "effect": "fade-up",
-        "duration": "900",
-        "delay": "700"
-      },
-      {
-        "title": ".NET Core, C#",
-        "progress": "70%",
-        "effect": "fade-up",
-        "duration": "1000",
-        "delay": "800"
-      },
-      {
-        "title": "CI/CD",
-        "progress": "70%",
-        "effect": "fade-up",
-        "duration": "1100",
-        "delay": "900"
-      }
-    ]
-  },
-  "portfolioData": {
-    "portfolioItems": [
-      {
-        "imgLink": "./images/portfolio/auction.jpeg",
-        "imgLinkLg": "./images/portfolio/auction.jpeg",
-        "title": "Cell Phone Auction App",
-        "subTitle": "Java / PostgreSQL",
-        "text": "Developed a Java-based console application for cell phone auctions with interfaces for clients, employees, and managers. Managed user details, auctions, and transactions using PostgreSQL, and processed JSON requests between front and back-end.",
-        "link": "https://github.com/aimenAlt/CellPhoneAuction",
-        "effect": "fade-up",
-        "duration": "500",
-        "delay": "200"
-      },
-      {
-        "imgLink": "./images/portfolio/mutual.jpg",
-        "imgLinkLg": "./images/portfolio/mutual.jpg",
-        "title": "Crypto Mutual Funds",
-        "subTitle": "React.js / Node.js",
-        "text": "Developed a full-stack app to track investments using React.js for the front end and Node.js and Express.js for the back end. Created a PostgreSQL database for managing investor data, integrated a cryptocurrency API for real-time updates, and implemented algorithms for calculating investment percentages and returns.",
-        "link": "https://github.com/aimenAlt/crypto-mutual-fund",
-        "effect": "fade-up",
-        "duration": "500",
-        "delay": "300"
-      },
-      {
-        "imgLink": "./images/portfolio/tubeyou.jpeg",
-        "imgLinkLg": "./images/portfolio/tubeyou.jpeg",
-        "title": "YouTube - ShadowC",
-        "subTitle": "TypeScript / SvelteKit",
-        "text": "Developed a YouTube clone with full front-end and back-end integration using TypeScript and SvelteKit. Implemented GraphQL for efficient data querying and used Tailwind for responsive UI design.",
-        "link": "https://github.com/aimenAlt/ShadowC-Youtube",
-        "effect": "fade-up",
-        "duration": "500",
-        "delay": "400"
-      }
-    ]
-  },
-  "resumeData": {
-    "experienceTitle": "Experience",
-    "experience": [
-      {
-        "title": "Software Development Engineer",
-        "duration": "Jul 2022 - Present",
-        "subTitle": "GoDaddy",
-        "text": "Developed React components, streamlined CMS workflows, and optimized CI/CD processes to enhance development efficiency and team collaboration."
-      },
-      {
-        "title": "Software Engineer",
-        "duration": "Sep 2021 - May 2022",
-        "subTitle": "Revature",
-        "text": "Built an Angular SPA, enhanced database models for efficient data retrieval, and implemented AWS S3 image upload to improve project capabilities."
-      },
-      {
-        "title": "Software Developer",
-        "duration": "Jan 2021 - Aug 2021",
-        "subTitle": "Crypto Mutual Funds",
-        "text": "Created a full-stack investment tracking app using React.js and Node.js, integrating real-time updates with a cryptocurrency API."
+        "title": "The merge stayed human",
+        "body": "Deliberately. The system generates a validated draft PR and stops."
       }
     ],
-    "educationTitle": "Education",
-    "education": [
-      {
-        "title": "Bachelor of Software Engineering",
-        "duration": "Aug 2020 - Jul 2022",
-        "subTitle": "California State University - Monterey Bay",
-        "text": "Focused on full-stack development, project management, and collaborative team projects to deliver robust software solutions."
-      },
-      {
-        "title": "Associate's in Computer Science",
-        "duration": "Aug 2017 - May 2020",
-        "subTitle": "Clovis Community College",
-        "text": "Learned programming, data structures, algorithms, and developed strong problem-solving skills to prepare for advanced studies."
-      },
-      {
-        "title": "Hack Reactor Boot Camp",
-        "duration": "Aug 2018 - April 2019",
-        "subTitle": "Hack Reactor",
-        "text": "Intensive software engineering program covering full-stack development, algorithms, and system design, emphasizing hands-on coding."
-      }
+    "metrics": [
+      { "value": "14+", "tone": "gold", "label": "automated bumps merged in early adoption" },
+      { "value": "13", "tone": "cyan", "label": "packages in a representative build" },
+      { "value": "2+", "tone": "cyan", "label": "brands on the shared platform" }
     ]
   },
-  "contactData": {
-    "formTitle": "Just say Hello",
-    "title": "Contact Info",
-    "subTitle": "Visit my social profile and get connected",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula nulla tincidunt id faucibus sed suscipit feugiat."
-  },
-  "socialData": [
+
+  "projects": [
     {
-      "title": "LinkedIn",
-      "icon": "fa6-brands:linkedin",
-      "link": "https://www.linkedin.com/in/aimen-altaiyeb/"
+      "kicker": "Orchestration",
+      "title": "A central release-orchestration layer",
+      "body": "Producer repo emits standard release metadata, a central layer validates it, and the downstream repo or deployment path picks it up. Repeated release logic lives behind reusable workflows and composite actions instead of being copy-pasted into every repository. Existing pipelines plug into it rather than being rewritten.",
+      "tags": ["GitHub Actions", "Reusable workflows", "Governance"]
     },
     {
-      "title": "GitHub",
-      "icon": "fa6-brands:github",
-      "link": "https://github.com/aimenAlt"
+      "kicker": "CI correctness",
+      "title": "Merge queues that actually validate",
+      "body": "A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.",
+      "tags": ["merge_group", "Concurrency", "CI caching"]
     },
     {
-      "title": "Email",
-      "icon": "fa6-solid:at",
-      "link": "aimen@altaiyeb.info"
+      "kicker": "Multi-brand platform",
+      "title": "One component, many brands",
+      "body": "Theme and intent abstractions that separate behavior and semantics from brand presentation, so shared React infrastructure serves several brand experiences without forking a component per brand.",
+      "tags": ["React", "TypeScript", "Monorepo"]
+    },
+    {
+      "kicker": "Browser platform",
+      "title": "Sticky-stack: independent roots, one stack",
+      "body": "The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.",
+      "tags": ["createPortal", "Custom hooks", "Layout"]
+    },
+    {
+      "kicker": "Rendering",
+      "title": "CMS to components, server-side",
+      "body": "I contributed to the CMS modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.",
+      "tags": ["Contentful", "Next.js", "SSR / hydration"]
+    },
+    {
+      "kicker": "Enablement",
+      "title": "A React bootcamp I wrote and taught",
+      "body": "Four hours, a progressive repository with structured branches, exercises and live instruction for interns. Turning what I know into something the team keeps is the same instinct as building a platform, just aimed at people.",
+      "tags": ["Teaching", "Docs", "Storybook"]
     }
-  ]
+  ],
+
+  "about": {
+    "heading": "I kept drifting toward the layer underneath",
+    "sub": "I started in product-facing React work, but the things I kept volunteering for were one layer down. The word for what I'm after is leverage: a feature ships once, a platform gets used for years.",
+    "more": [
+      "That thread runs through all of it — shared component architecture, theme and intent APIs, sticky-stack, release orchestration, merge queues, the bootcamp I wrote for interns.",
+      "I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at platform work than any framework has."
+    ],
+    "trajectory": [
+      "Frontend features",
+      "Reusable components",
+      "Shared infrastructure",
+      "Multi-brand platform",
+      "Release automation",
+      "Developer Experience"
+    ],
+    "cv": [
+      { "org": "GoDaddy", "when": "2022 — now", "role": "Software Development Engineer II · Remote" },
+      { "org": "Revature", "when": "2021 — 2022", "role": "Software Engineer · Verizon engagement" }
+    ],
+    "education": [
+      { "degree": "M.B.A., IT Management", "school": "Western Governors University · 2025" },
+      { "degree": "B.S., Computer Science", "school": "CSU Monterey Bay · 2022" }
+    ],
+    "toolkit": [
+      "React", "TypeScript", "Next.js · SSR", "GitHub Actions",
+      "Reusable workflows", "Composite actions", "Changesets", "Syncpack",
+      "Merge queues", "Monorepos", "Semantic versioning", "Jest · Cypress",
+      "Storybook", "Contentful"
+    ]
+  },
+
+  "contact": {
+    "heading": "If your teams are waiting on the pipeline, that's my kind of problem.",
+    "email": "aimen@altaiyeb.info",
+    "resume": "Aimen-Altaiyeb-Resume.pdf",
+    "meta": [
+      { "key": "based", "value": "Austin, TX" },
+      { "key": "linkedin", "value": "in/aimen-altaiyeb", "href": "https://linkedin.com/in/aimen-altaiyeb" },
+      { "key": "github", "value": "aimenAlt", "href": "https://github.com/aimenAlt" },
+      { "key": "site", "value": "altaiyeb.info", "href": "https://www.altaiyeb.info" }
+    ]
+  },
+
+  "footer": {
+    "left": "Aimen Altaiyeb — Frontend Platform & Developer Experience",
+    "right": "2026"
+  }
 }

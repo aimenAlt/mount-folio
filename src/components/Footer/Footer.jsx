@@ -1,20 +1,10 @@
 import './Footer.scss';
-import SocialLinks from '../SocialLinks/SocialLinks';
 
-const Footer = ({ socialData }) => {
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-
-
-  const showTitles = true;
-
+export default function Footer({ data }) {
   return (
     <footer>
-      <div className="container">
-        <SocialLinks data={socialData} showTitle={true} enableAos={false} />
-      </div>
+      <span>{data.left}</span>
+      <span>{data.right}</span>
     </footer>
-  )
+  );
 }
-
-export default Footer;

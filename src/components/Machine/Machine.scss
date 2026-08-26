@@ -1,0 +1,217 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.seg {
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 999px;
+  background: var(--card-2);
+  border: 1px solid oklch(0.32 0.012 62);
+}
+
+.seg-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 200ms, color 200ms;
+
+  &.is-on {
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 700;
+  }
+}
+
+.chain-card {
+  padding: 34px 32px;
+  border-radius: 22px;
+}
+
+.chain {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+// Colour-coded at rest: the red-vs-gold ratio IS the argument.
+.node {
+  min-width: 0;
+  height: 62px;
+  border-radius: 9px;
+  transition: background 300ms, border-color 300ms, transform 300ms, box-shadow 300ms;
+
+  &.human { background: oklch(0.42 0.10 32); border: 1px solid oklch(0.56 0.14 32); }
+  &.auto  { background: oklch(0.40 0.055 76); border: 1px solid oklch(0.54 0.075 76); }
+
+  &.done.human { background: oklch(0.46 0.13 32); border-color: oklch(0.62 0.16 32); }
+  &.done.auto  { background: oklch(0.52 0.08 76); border-color: oklch(0.68 0.10 76); }
+
+  &.on {
+    transform: translateY(-8px) scaleY(1.18);
+
+    &.human {
+      background: oklch(0.66 0.19 32);
+      border-color: oklch(0.80 0.17 32);
+      box-shadow: 0 12px 38px oklch(0.62 0.18 32 / 0.55);
+    }
+
+    &.auto {
+      background: oklch(0.84 0.13 76);
+      border-color: oklch(0.92 0.11 76);
+      box-shadow: 0 12px 38px oklch(0.76 0.13 76 / 0.55);
+    }
+  }
+}
+
+.chain-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:first-child { color: oklch(0.68 0.13 32); }
+    &:last-child { color: oklch(0.74 0.10 76); }
+  }
+}
+
+.chain-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+
+  .kicker { margin-bottom: 10px; }
+}
+
+.step-label {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.1;
+  margin: 0;
+  min-height: 1.1em;
+}
+
+.counts {
+  display: flex;
+  gap: 34px;
+}
+
+.num {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1;
+  margin: 0;
+  color: var(--red);
+
+  &.dim { color: var(--ink-3); }
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.ev {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg-band);
+  border: 1px solid var(--line);
+
+  span:first-child { min-width: 62px; }
+
+  &.ev-out {
+    background: oklch(0.24 0.024 76);
+    border-color: oklch(0.56 0.09 76);
+  }
+}
+
+.ev-join {
+  height: 20px;
+  margin-left: 28px;
+  border-left: 1px dashed var(--gold-dim);
+}
+
+.outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  p:not([class]) {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-3);
+    margin: 0;
+  }
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.metric {
+  padding: 20px 22px;
+  border-radius: 16px;
+
+  > p:not([class]) { font-size: 13.5px; }
+}
+
+.metric-n {
+  font-family: var(--serif);
+  font-size: 38px;
+  line-height: 1;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 1020px) {
+  .metrics { grid-template-columns: 1fr; }
+
+  .chain-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .chain {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+    grid-auto-columns: auto;
+  }
+
+  .node { height: 40px; }
+  .counts { gap: 24px; }
+}
