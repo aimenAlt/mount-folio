@@ -47,8 +47,8 @@ you can delete or move. Only genuinely global vocabulary lives in `sass/default`
 | Prose that appears exactly once (headings, the stakes argument) | the component's `.jsx` |
 | Background density / speed / colour | `CONF` at the top of `components/Ambient/Ambient.jsx` |
 
-**Missing asset:** `Aimen-Altaiyeb-Resume.pdf`. Three buttons link to it — drop
-it in `public/` and it ships to the site root.
+Hero and contact buttons download `public/Aimen-Altaiyeb-Resume.pdf` (served at
+the site root). Replace that file to update the résumé.
 
 ## The two custom graphics
 
