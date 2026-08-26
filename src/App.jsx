@@ -3,6 +3,7 @@ import Ambient from './components/Ambient/Ambient';
 import ScrollRail from './components/ScrollRail/ScrollRail';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
+import Footer from './components/Footer/Footer';
 
 export default function App() {
   return (
@@ -10,7 +11,10 @@ export default function App() {
       <Ambient />
       <ScrollRail />
       <Header brand={data.brand} nav={data.nav} />
-      <Home {...data} />
+      <main>
+        <Home {...data} />
+      </main>
+      <Footer data={data.footer} />
     </>
   );
 }

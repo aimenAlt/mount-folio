@@ -103,7 +103,13 @@ const llms = `# ${data.brand}
 
 > ${data.hero.lede}
 
-${data.brand} is a frontend platform engineer at GoDaddy, based in ${based}, open to remote work. Personal site: ${site}/
+${data.brand} is a frontend platform engineer at GoDaddy, based in ${based}, open to remote work.
+
+## Site
+
+- [Home](${site}/): personal site — frontend platform and developer experience
+- [Résumé (PDF)](${site}/${data.contact.resume}): one-page résumé
+- [Sitemap](${site}/sitemap.xml): crawl map
 
 ## Focus
 
@@ -127,10 +133,9 @@ ${data.about.toolkit.join(', ')}
 
 ## Contact
 
-- Email: ${data.contact.email}
-- LinkedIn: ${linkedin?.href}
-- GitHub: ${github?.href}
-- Résumé: ${site}/${data.contact.resume}
+- [${data.contact.email}](mailto:${data.contact.email})
+- [LinkedIn](${linkedin?.href})
+- [GitHub](${github?.href})
 `;
 await writeFile(path.join(dist, 'llms.txt'), llms);
 

@@ -39,7 +39,7 @@ button { font: inherit; color: inherit; }
 
 // Everything sits above the ambient canvas. Bands are translucent rather than
 // blurred, so the mesh shows through for free.
-header, section, footer { position: relative; z-index: 1; }
+header, section, footer, main { position: relative; z-index: 1; }
 
 section,
 header#top {
