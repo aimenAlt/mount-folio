@@ -35,7 +35,7 @@ React, TypeScript, Next.js · SSR, GitHub Actions, Reusable workflows, Composite
 
 ## Contact
 
-- Email: aimen@altaiyeb.info
+- Email: aimen.altaiyeb@gmail.com
 - LinkedIn: https://linkedin.com/in/aimen-altaiyeb
 - GitHub: https://github.com/aimenAlt
 - Résumé: https://altaiyeb.info/Aimen-Altaiyeb-Resume.pdf
