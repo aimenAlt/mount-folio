@@ -10,3 +10,7 @@ footer {
   letter-spacing: 0.08em;
   color: var(--ink-4);
 }
+
+@media (max-width: 820px) {
+  footer { font-size: 10.5px; }
+}

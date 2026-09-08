@@ -108,3 +108,13 @@
   max-width: 26em;
   text-wrap: pretty;
 }
+
+@media (max-width: 820px) {
+  .stakes-grid { margin-bottom: 34px; }
+
+  .blast { padding: 26px 22px; }
+  .blast-lead { font-size: 21px; }
+
+  .pair { font-size: 12.5px; }
+  .pkg { padding: 13px 14px; }
+}

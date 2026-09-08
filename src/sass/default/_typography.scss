@@ -94,3 +94,20 @@ h4 {
   font-weight: 700;
   margin: 0 0 5px;
 }
+
+// Mobile type scale. Kept here rather than per-component so the whole page
+// steps down together.
+@media (max-width: 820px) {
+  .display {
+    font-size: clamp(28px, 7.4vw, 38px);
+
+    &.sm { font-size: clamp(26px, 6.8vw, 34px); }
+  }
+
+  .sub {
+    font-size: 17px;
+    margin-bottom: 32px;
+  }
+
+  .body { font-size: 16px; }
+}
