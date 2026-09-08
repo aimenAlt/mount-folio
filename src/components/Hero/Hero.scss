@@ -58,7 +58,9 @@ header {
   transform-style: preserve-3d;
   transform: scale(var(--rig-scale, 0.82)) rotateX(60deg) rotateZ(-32deg);
   transition: transform 300ms var(--ease);
-  will-change: transform;
+
+  /* Only hint the compositor when a transform is actually being driven. */
+  &:not(.is-still) { will-change: transform; }
 }
 
 // Beams rise through the plates — a change propagating upward.
@@ -190,7 +192,42 @@ header {
   .rig { height: 400px; }
 }
 
+/* Phones get a deliberately cheaper hero: the stack holds a static pose (see
+   Hero.jsx), the legend drops below it instead of overlapping, and the beams
+   stop looping so nothing competes with the scroll. */
+@media (max-width: 820px) {
+  header {
+    min-height: auto;
+    padding-top: 28px;
+    padding-bottom: 44px;
+  }
+
+  h1 { font-size: clamp(38px, 11vw, 56px); }
+
+  .lede {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  /* .stack is absolutely positioned across .rig, so the legend only clears it
+     by getting a band of its own at the bottom. */
+  .rig { height: 360px; }
+  .stack { bottom: 64px; }
+  .rig-legend { bottom: 0; }
+}
+
 @media (max-width: 700px) {
-  .rig { height: 290px; }
+  .rig { height: 320px; }
   header { padding-left: 20px !important; padding-right: 20px !important; }
+}
+
+@media (max-width: 420px) {
+  .rig { height: 270px; }
+}
+
+@media (hover: none) {
+  .beam {
+    animation: none;
+    opacity: 0.55;
+  }
 }

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import useReducedMotion from '../../hooks/useReducedMotion';
+import { AMBIENT_CONF as CONF, LOW_POWER } from '../../utils/device';
 import './Ambient.scss';
 
 /**
@@ -7,19 +8,11 @@ import './Ambient.scss';
  * them — a dependency graph that never stops rearranging itself. Tuned to be
  * felt, not watched.
  *
- * PERFORMANCE: one canvas, capped at ~24fps, device pixel ratio capped at 1.5,
- * paused when the tab is hidden. Edges batch into two colour paths bucketed by
- * alpha, so a frame costs ~8 stroke calls instead of one per edge.
+ * PERFORMANCE: one canvas, capped fps, device pixel ratio capped, paused when
+ * the tab is hidden. Edges batch into two colour paths bucketed by alpha, so a
+ * frame costs ~8 stroke calls instead of one per edge. The canvas is promoted
+ * to its own compositor layer in CSS so scrolling never repaints it.
  */
-
-const CONF = {
-  density: 8200,   // one node per N css pixels
-  maxNodes: 190,
-  linkDist: 172,
-  speed: 0.06,     // deliberately glacial
-  fps: 24
-};
-
 export default function Ambient() {
   const canvasRef = useRef(null);
   const reduced = useReducedMotion();
@@ -37,17 +30,21 @@ export default function Ambient() {
     let w = 0;
     let h = 0;
 
-    function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      w = window.innerWidth;
-      h = window.innerHeight;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    /* Mobile address bars change innerHeight constantly while scrolling.
+       Resizing the backing store on every one of those events is what made the
+       mesh go fuzzy (CSS stretch over a stale bitmap) and pop (nodes
+       regenerated). So: lock the drawing surface, size it in CSS pixels
+       explicitly, and only rebuild when the width really changes. */
+    let lockedW = 0;
+    /* Seeded from the tallest the viewport can ever get, so the surface already
+       covers the page when the address bar hides. */
+    let lockedH = LOW_POWER
+      ? Math.max(window.innerHeight, window.screen ? window.screen.height : 0)
+      : 0;
 
-      const target = Math.min(CONF.maxNodes, Math.round((w * h) / CONF.density));
+    function build(count) {
       nodes = [];
-      for (let i = 0; i < target; i += 1) {
+      for (let i = 0; i < count; i += 1) {
         nodes.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -57,6 +54,28 @@ export default function Ambient() {
           turn: (Math.random() - 0.5) * 0.00022
         });
       }
+    }
+
+    function resize(force) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      // Ignore pure height changes from browser chrome.
+      if (!force && vw === lockedW && vh <= lockedH) return;
+
+      lockedW = vw;
+      lockedH = Math.max(lockedH, vh);
+      w = lockedW;
+      h = lockedH;
+
+      dpr = Math.min(window.devicePixelRatio || 1, CONF.dprCap);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      build(Math.min(CONF.maxNodes, Math.round((w * h) / CONF.density)));
     }
 
     // Groups edges into 4 alpha buckets so near-identical lines share one
@@ -122,12 +141,25 @@ export default function Ambient() {
       }
     }
 
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
+    resize(true);
+
+    const onResize = () => {
+      if (window.innerWidth !== lockedW) { // real resize, not browser chrome
+        lockedH = 0;
+        resize(true);
+      }
+    };
+    const onOrientation = () => { lockedH = 0; resize(true); };
+
+    window.addEventListener('resize', onResize, { passive: true });
+    window.addEventListener('orientationchange', onOrientation, { passive: true });
 
     if (reduced) {
       draw(0);
-      return () => window.removeEventListener('resize', resize);
+      return () => {
+        window.removeEventListener('resize', onResize);
+        window.removeEventListener('orientationchange', onOrientation);
+      };
     }
 
     const frameMs = 1000 / CONF.fps;
@@ -159,7 +191,8 @@ export default function Ambient() {
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onOrientation);
       document.removeEventListener('visibilitychange', onVisibility);
     };
   }, [reduced]);

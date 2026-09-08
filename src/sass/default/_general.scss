@@ -207,6 +207,25 @@ section { padding: 88px var(--gutter); }
   .two { grid-template-columns: 1fr !important; gap: 26px; }
 }
 
+// Phones: tighter rhythm and full-width tap targets, not just squeezed desktop.
+@media (max-width: 820px) {
+  section {
+    padding-top: 62px;
+    padding-bottom: 62px;
+  }
+
+  .card { padding: 22px 20px; }
+
+  .btn-row { gap: 10px; }
+
+  .btn {
+    padding: 14px 20px;
+    font-size: 15px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 700px) {
   section { padding-left: 20px !important; padding-right: 20px !important; }
 }

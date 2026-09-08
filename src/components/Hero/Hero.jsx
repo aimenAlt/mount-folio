@@ -1,12 +1,17 @@
 import { useCallback, useEffect, useRef } from 'react';
 import useRafScroll from '../../hooks/useRafScroll';
 import useReducedMotion from '../../hooks/useReducedMotion';
+import useLowPower from '../../hooks/useLowPower';
 import './Hero.scss';
 
 /**
  * The propagation stack: one change entering at the base and rising through
  * four layers — shared packages, rendering layer, brand surfaces. Tilts with
- * the cursor and turns as you scroll.
+ * the cursor and turns as you scroll on pointer devices.
+ *
+ * On phones it holds a static pose: there is no cursor to follow, and a
+ * scroll-driven 3D transform on a preserve-3d subtree is the most expensive
+ * thing on the page.
  */
 
 function rigScale() {
@@ -21,6 +26,8 @@ export default function Hero({ data }) {
   const stackRef = useRef(null);
   const pose = useRef({ dx: 0, dy: 0, scroll: 0 });
   const reduced = useReducedMotion();
+  const lowPower = useLowPower();
+  const still = reduced || lowPower;
 
   const apply = useCallback(() => {
     const stack = stackRef.current;
@@ -36,16 +43,16 @@ export default function Hero({ data }) {
   }, []);
 
   const onScroll = useCallback((y) => {
-    if (reduced) return;
+    if (still) return;
     pose.current.scroll = Math.max(0, Math.min(1.6, y / Math.max(1, window.innerHeight)));
     apply();
-  }, [apply, reduced]);
+  }, [apply, still]);
 
   useRafScroll(onScroll);
 
   useEffect(() => {
     apply();
-    if (reduced) return undefined;
+    if (still) return undefined;
 
     const onMove = (e) => {
       const rig = rigRef.current;
@@ -64,7 +71,7 @@ export default function Hero({ data }) {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('resize', apply);
     };
-  }, [apply, reduced]);
+  }, [apply, still]);
 
   const cells = (n) => Array.from({ length: n }, (_, i) => <i key={i} />);
   const [first, emphasis, last] = data.headline;
@@ -87,7 +94,7 @@ export default function Hero({ data }) {
 
       <div className="rig" ref={rigRef}>
         <div className="rig-glow" />
-        <div className="stack" ref={stackRef}>
+        <div className={`stack${still ? ' is-still' : ''}`} ref={stackRef}>
           <span className="beam b1" />
           <span className="beam b2" />
           <span className="beam b3" />

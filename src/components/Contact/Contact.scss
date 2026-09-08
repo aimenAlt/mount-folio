@@ -39,3 +39,8 @@
   dt { color: oklch(0.66 0.01 76); }
   dd { margin: 0; }
 }
+
+@media (max-width: 820px) {
+  .meta { font-size: 12.5px; }
+  #contact { padding-bottom: 72px; }
+}
