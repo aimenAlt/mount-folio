@@ -1,13 +1,13 @@
 # Aimen Altaiyeb
 
-> Frontend platform engineer at GoDaddy. My users are other engineers.
+> Software engineer at GoDaddy on the platform behind our customer-facing web experience — Contentful-driven, server-rendered, three brands — plus the release automation that gets it to production safely.
 
-Aimen Altaiyeb is a frontend platform engineer at GoDaddy, based in Austin, TX, open to remote work.
+Aimen Altaiyeb is a software engineer at GoDaddy, working on the customer-facing web platform and the release automation behind it. Based in Austin, TX, open to remote work.
 
 ## Site
 
-- [Home](https://altaiyeb.info/): personal site — frontend platform and developer experience
-- [Résumé (PDF)](https://altaiyeb.info/Aimen-Altaiyeb-Resume.pdf): one-page résumé
+- [Home](https://altaiyeb.info/): personal site — web platform and developer experience
+- [Résumé (PDF)](https://altaiyeb.info/Aimen_Altaiyeb_Resume_WebPlatform.pdf): one-page résumé
 - [Sitemap](https://altaiyeb.info/sitemap.xml): crawl map
 
 ## Focus
@@ -18,7 +18,23 @@ That thread runs through all of it — shared component architecture, theme and 
 
 I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at platform work than any framework has.
 
+## Platform
+
+Content goes in one end. A multi-brand website comes out the other.
+
+Editors author structured content in Contentful. It gets transformed and mapped onto a shared React and TypeScript component library, rendered server-side, and served as the customer-facing site across GoDaddy, Afternic, and 123 Reg — with routing, navigation, search, brand configuration, and internationalization all resolved along the way.
+
+My team builds and maintains that chain. Not one application at the end of it — the transforms, the component interfaces, the rendering behavior, and the integrations with the other systems and the CDN that put it in front of people.
+
+Pipeline: Contentful → Transform / facade → Component mapping → SSR render + hydrate → Brand surfaces
+
+- Internationalization: Right-to-left layout and translation handling inside components that several brand experiences consume. A shared component can't assume the direction text runs.
+- React 18 → 19: Contributed to moving the shared platform onto React 19 — working the breaking changes across the component library and the applications that consume it, without a flag day for the teams downstream.
+- Content-to-component alignment: Contributed to keeping component interfaces aligned with Contentful content schemas, so a content-model change and the component that renders it don't drift apart silently.
+
 ## Case study
+
+About a third of my time goes here. A platform this size releases constantly — the shared library publishes multiple times a day, and the site consumes it about as often. Below is what that used to cost, and what I built to stop paying it.
 
 Every release used to be walked across four repositories by hand. So I built the thing that walks it. Press play.
 
