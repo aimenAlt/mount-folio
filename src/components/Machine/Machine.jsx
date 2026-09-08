@@ -74,6 +74,12 @@ export default function Machine({ data }) {
       ref={ref}
     >
       <div className="wrap">
+        <div className="devex-lead">
+          <h2 className="display sm">{data.lead.heading}</h2>
+          <p className="sub">{data.lead.sub}</p>
+          <p className="sme">{data.lead.note}</p>
+        </div>
+
         <p className="kicker gold rowline">
           <span>{data.kicker}</span>
           <span className="rule" />

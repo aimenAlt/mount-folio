@@ -32,7 +32,9 @@
 h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(46px, 6.2vw, 92px);
+  // Sized so the longest headline line clears the hero copy column between
+  // 1020px and the max-width cap, where the two-column grid is tightest.
+  font-size: clamp(46px, 5.6vw, 84px);
   line-height: 0.95;
   letter-spacing: -0.025em;
   margin: 0 0 30px;

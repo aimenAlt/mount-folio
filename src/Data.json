@@ -2,6 +2,7 @@
   "brand": "Aimen Altaiyeb",
 
   "nav": [
+    { "label": "The platform", "href": "#platform" },
     { "label": "The machine", "href": "#machine" },
     { "label": "Why it mattered", "href": "#stakes" },
     { "label": "Work", "href": "#work" },
@@ -10,8 +11,8 @@
 
   "hero": {
     "kicker": "Austin, TX · open to remote",
-    "headline": ["I build the layer", "underneath", "feature teams."],
-    "lede": "Frontend platform engineer at GoDaddy. My users are other engineers.",
+    "headline": ["I build the site,", "and the machine", "that ships it."],
+    "lede": "Software engineer at GoDaddy on the platform behind our customer-facing web experience — Contentful-driven, server-rendered, three brands — plus the release automation that gets it to production safely.",
     "legend": [
       { "swatch": "gold", "label": "Shared packages I maintain" },
       { "swatch": "dim", "label": "Rendering layer" },
@@ -19,7 +20,49 @@
     ]
   },
 
+  "platform": {
+    "kicker": "The platform",
+    "meta": "GoDaddy · Afternic · 123 Reg",
+    "heading": "Content goes in one end. A multi-brand website comes out the other.",
+    "body": [
+      "Editors author structured content in Contentful. It gets transformed and mapped onto a shared React and TypeScript component library, rendered server-side, and served as the customer-facing site across GoDaddy, Afternic, and 123 Reg — with routing, navigation, search, brand configuration, and internationalization all resolved along the way.",
+      "My team builds and maintains that chain. Not one application at the end of it — the transforms, the component interfaces, the rendering behavior, and the integrations with the other systems and the CDN that put it in front of people."
+    ],
+    "pipeline": [
+      { "label": "Contentful" },
+      { "label": "Transform / facade", "tone": "gold" },
+      { "label": "Component mapping", "tone": "gold" },
+      { "label": "SSR render + hydrate", "tone": "gold" },
+      { "label": "Brand surfaces", "note": "GoDaddy · Afternic · 123 Reg", "tone": "cyan" }
+    ],
+    "pipelineCaption": "integrations with other applications and CDN delivery",
+    "metrics": [
+      { "value": "3", "tone": "cyan", "label": "brands on the shared platform" },
+      { "value": "100+", "tone": "gold", "label": "CI workflow runs on an active day" },
+      { "value": "RTL", "tone": "cyan", "label": "internationalization, including right-to-left" }
+    ],
+    "cards": [
+      {
+        "title": "Internationalization",
+        "body": "Right-to-left layout and translation handling inside components that several brand experiences consume. A shared component can't assume the direction text runs."
+      },
+      {
+        "title": "React 18 → 19",
+        "body": "Contributed to moving the shared platform onto React 19 — working the breaking changes across the component library and the applications that consume it, without a flag day for the teams downstream."
+      },
+      {
+        "title": "Content-to-component alignment",
+        "body": "Contributed to keeping component interfaces aligned with Contentful content schemas, so a content-model change and the component that renders it don't drift apart silently."
+      }
+    ]
+  },
+
   "machine": {
+    "lead": {
+      "heading": "About a third of my time goes here.",
+      "sub": "A platform this size releases constantly — the shared library publishes multiple times a day, and the site consumes it about as often. Below is what that used to cost, and what I built to stop paying it.",
+      "note": "My manager and our technical program manager point people at me as the team's subject-matter expert for developer experience and CI/CD."
+    },
     "kicker": "Case study 01",
     "meta": "GoDaddy · 4 repositories",
     "heading": "Every release used to be walked across four repositories by hand.",
@@ -74,7 +117,7 @@
     "metrics": [
       { "value": "20–40 min", "tone": "gold", "label": "of manual coordination removed per propagation" },
       { "value": "13", "tone": "cyan", "label": "packages in a representative build" },
-      { "value": "2+", "tone": "cyan", "label": "brands on the shared platform" },
+      { "value": "3", "tone": "cyan", "label": "brands on the shared platform" },
       { "value": "daily+", "tone": "gold", "label": "release cadence the automation keeps up with" }
     ]
   },
@@ -128,10 +171,9 @@
     "trajectory": [
       "Frontend features",
       "Reusable components",
-      "Shared infrastructure",
       "Multi-brand platform",
       "Release automation",
-      "Developer Experience"
+      "Platform ownership, end to end"
     ],
     "cv": [
       { "org": "GoDaddy", "when": "Jan 2025 — now", "role": "Software Development Engineer II · Remote" },
@@ -154,7 +196,7 @@
   "contact": {
     "heading": "If your teams are waiting on the pipeline, that's my kind of problem.",
     "email": "aimen.altaiyeb@gmail.com",
-    "resume": "Aimen-Altaiyeb-Resume.pdf",
+    "resume": "Aimen_Altaiyeb_Resume_WebPlatform.pdf",
     "meta": [
       { "key": "based", "value": "Austin, TX" },
       { "key": "linkedin", "value": "in/aimen-altaiyeb", "href": "https://linkedin.com/in/aimen-altaiyeb" },
@@ -164,7 +206,7 @@
   },
 
   "footer": {
-    "left": "Aimen Altaiyeb — Frontend Platform & Developer Experience",
+    "left": "Aimen Altaiyeb — Web Platform & Developer Experience",
     "right": "2026"
   }
 }

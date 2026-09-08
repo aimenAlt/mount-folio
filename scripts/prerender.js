@@ -33,7 +33,7 @@ const jsonLd = JSON.stringify({
       name: data.brand,
       url: `${site}/`,
       email: `mailto:${data.contact.email}`,
-      jobTitle: 'Frontend platform engineer',
+      jobTitle: 'Software Development Engineer II',
       description: data.hero.lede,
       homeLocation: {
         '@type': 'Place',
@@ -63,7 +63,7 @@ const jsonLd = JSON.stringify({
       '@type': 'WebPage',
       '@id': `${site}/#webpage`,
       url: `${site}/`,
-      name: `${data.brand} — Frontend Platform & Developer Experience`,
+      name: `${data.brand} — Web Platform & Developer Experience`,
       description: data.hero.lede,
       about: { '@id': `${site}/#person` },
       mainEntity: { '@id': `${site}/#person` }
@@ -103,11 +103,11 @@ const llms = `# ${data.brand}
 
 > ${data.hero.lede}
 
-${data.brand} is a frontend platform engineer at GoDaddy, based in ${based}, open to remote work.
+${data.brand} is a software engineer at GoDaddy, working on the customer-facing web platform and the release automation behind it. Based in ${based}, open to remote work.
 
 ## Site
 
-- [Home](${site}/): personal site — frontend platform and developer experience
+- [Home](${site}/): personal site — web platform and developer experience
 - [Résumé (PDF)](${site}/${data.contact.resume}): one-page résumé
 - [Sitemap](${site}/sitemap.xml): crawl map
 
@@ -117,7 +117,19 @@ ${data.about.sub}
 
 ${data.about.more.join('\n\n')}
 
+## Platform
+
+${data.platform.heading}
+
+${data.platform.body.join('\n\n')}
+
+Pipeline: ${data.platform.pipeline.map((n) => n.label).join(' → ')}
+
+${data.platform.cards.map((c) => `- ${c.title}: ${c.body}`).join('\n')}
+
 ## Case study
+
+${data.machine.lead.heading} ${data.machine.lead.sub}
 
 ${data.machine.heading} ${data.machine.sub}
 

@@ -1,3 +1,23 @@
+// Lead-in that reframes this case study as the specialization rather than the
+// thesis. The SME line is a statement about what other people say, so it is set
+// apart from the running copy rather than folded into it.
+.devex-lead {
+  margin-bottom: 52px;
+
+  .sub { margin-bottom: 26px; }
+}
+
+.sme {
+  max-width: 34em;
+  margin: 0;
+  padding: 16px 0 16px 22px;
+  border-left: 2px solid var(--gold-dim);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;

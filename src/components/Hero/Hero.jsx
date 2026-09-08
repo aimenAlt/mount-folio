@@ -21,7 +21,7 @@ function rigScale() {
   return 0.82;
 }
 
-export default function Hero({ data }) {
+export default function Hero({ data, resume }) {
   const rigRef = useRef(null);
   const stackRef = useRef(null);
   const pose = useRef({ dx: 0, dy: 0, scroll: 0 });
@@ -87,8 +87,9 @@ export default function Hero({ data }) {
         </h1>
         <p className="lede">{data.lede}</p>
         <div className="btn-row">
-          <a href="#machine" className="btn btn-solid">Watch a system run →</a>
-          <a href="Aimen-Altaiyeb-Resume.pdf" className="btn btn-ghost">Résumé</a>
+          <a href="#platform" className="btn btn-solid">See the platform →</a>
+          <a href="#machine" className="btn btn-ghost">Watch a system run →</a>
+          <a href={resume} className="btn btn-ghost">Résumé</a>
         </div>
       </div>
 
