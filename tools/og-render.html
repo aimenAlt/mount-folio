@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG image render — 1200×630</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Render target for the social preview card. Not shipped — it exists so the
+     OG image is generated from the real design rather than drawn by hand.
+     Capture the .og element at 1200x630 and save as site/og-image.png. */
+  body { margin: 0; background: #0b0a09; display: grid; place-items: center; min-height: 100vh; }
+
+  .og {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: oklch(0.15 0.012 62);
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: oklch(0.94 0.008 82);
+  }
+
+  #mesh { position: absolute; inset: 0; }
+
+  .glow {
+    position: absolute;
+    right: -60px;
+    top: 42%;
+    width: 760px;
+    height: 760px;
+    margin: -380px 0 0 0;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+      oklch(0.40 0.08 76 / 0.30) 0%,
+      oklch(0.30 0.06 196 / 0.12) 46%,
+      transparent 70%);
+  }
+
+  .copy {
+    position: absolute;
+    left: 76px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 560px;
+  }
+
+  .kicker {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: oklch(0.78 0.13 196);
+    margin: 0 0 26px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .kicker i { width: 9px; height: 9px; border-radius: 50%; background: oklch(0.78 0.13 196); display: block; }
+
+  h1 {
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin: 0 0 26px;
+  }
+  h1 em { font-style: italic; color: oklch(0.82 0.12 76); }
+
+  .sub {
+    font-size: 23px;
+    line-height: 1.45;
+    color: oklch(0.80 0.01 78);
+    margin: 0 0 34px;
+    max-width: 21em;
+  }
+
+  .url {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: oklch(0.82 0.12 76);
+    margin: 0;
+  }
+
+  /* The propagation stack, same geometry as the hero. */
+  .rig {
+    position: absolute;
+    right: -6px;
+    top: 64%;
+    width: 620px;
+    height: 620px;
+    margin-top: -310px;
+    perspective: 1500px;
+    perspective-origin: 50% 46%;
+  }
+  .stack {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    /* Scaled so the full four-plate stack sits inside the 630px card. */
+    transform: scale(0.74) rotateX(60deg) rotateZ(-32deg);
+  }
+  .beam {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 2px; height: 318px;
+    margin-left: -1px;
+    transform-origin: 50% 100%;
+    background: linear-gradient(to top,
+      oklch(0.82 0.12 76 / 0),
+      oklch(0.82 0.12 76 / 0.8),
+      oklch(0.82 0.12 76 / 0));
+  }
+  .b1 { transform: translate3d(-104px,-104px,0) rotateX(-90deg); opacity: 0.9; }
+  .b2 { transform: translate3d(104px,-104px,0) rotateX(-90deg); opacity: 0.45; }
+  .b3 { transform: translate3d(-104px,104px,0) rotateX(-90deg); opacity: 0.65; }
+  .b4 { transform: translate3d(104px,104px,0) rotateX(-90deg); opacity: 0.3; }
+
+  .plate { position: absolute; left: 50%; top: 50%; border-radius: 10px; }
+  .plate-1 {
+    width: 300px; height: 300px; margin: -150px 0 0 -150px;
+    transform: translateZ(0);
+    border: 1px solid oklch(0.74 0.11 76);
+    background: oklch(0.26 0.030 76 / 0.92);
+    box-shadow: 0 0 60px oklch(0.60 0.10 76 / 0.28);
+  }
+  .plate-2 {
+    width: 268px; height: 268px; margin: -134px 0 0 -134px;
+    transform: translateZ(106px);
+    border: 1px solid oklch(0.52 0.06 76);
+    background: oklch(0.23 0.018 68 / 0.9);
+  }
+  .plate-3 {
+    width: 236px; height: 236px; margin: -118px 0 0 -118px;
+    transform: translateZ(212px);
+    border: 1px solid oklch(0.56 0.09 196);
+    background: oklch(0.22 0.022 196 / 0.9);
+  }
+  .plate-4 {
+    width: 204px; height: 204px; margin: -102px 0 0 -102px;
+    transform: translateZ(318px);
+    border: 1px solid oklch(0.44 0.01 74);
+    background: oklch(0.21 0.012 62 / 0.9);
+  }
+
+  .cells { position: absolute; display: grid; gap: 10px; justify-content: center; align-content: center; }
+  .cells i { border-radius: 5px; background: oklch(0.34 0.02 70); border: 1px solid oklch(0.44 0.03 70); }
+  .plate-1 .cells { inset: 47px; grid-template-columns: repeat(4,44px); grid-auto-rows: 44px; }
+  .plate-1 .cells i { background: oklch(0.44 0.07 76); border-color: oklch(0.62 0.09 76); }
+  .plate-2 .cells { inset: 52px; grid-template-columns: repeat(3,48px); grid-auto-rows: 48px; }
+  .plate-3 .cells { inset: 51px; grid-template-columns: repeat(2,62px); grid-auto-rows: 62px; }
+  .plate-3 .cells i { background: oklch(0.34 0.045 196); border-color: oklch(0.50 0.07 196); }
+  .plate-4 .cells { inset: 32px; grid-template-columns: repeat(3,40px); grid-auto-rows: 40px; }
+
+  /* Vignette keeps the mesh from competing with the headline. */
+  .vig {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg,
+      oklch(0.15 0.012 62 / 0.92) 0%,
+      oklch(0.15 0.012 62 / 0.72) 34%,
+      transparent 58%);
+  }
+</style>
+</head>
+<body>
+
+<div class="og">
+  <canvas id="mesh" width="1200" height="630"></canvas>
+  <div class="glow"></div>
+
+  <div class="rig">
+    <div class="stack">
+      <span class="beam b1"></span><span class="beam b2"></span>
+      <span class="beam b3"></span><span class="beam b4"></span>
+      <div class="plate plate-1"><div class="cells"></div></div>
+      <div class="plate plate-2"><div class="cells"></div></div>
+      <div class="plate plate-3"><div class="cells"></div></div>
+      <div class="plate plate-4"><div class="cells"></div></div>
+    </div>
+  </div>
+
+  <div class="vig"></div>
+
+  <div class="copy">
+    <p class="kicker"><i></i>Austin, TX · open to remote</p>
+    <h1>Aimen<br>Altaiyeb</h1>
+    <p class="sub">Web platform &amp; developer experience —<br>I build the site, and the machine that ships it.</p>
+    <p class="url">altaiyeb.info</p>
+  </div>
+</div>
+
+<script>
+// Cell counts mirror the hero exactly.
+const COUNTS = [12, 6, 4, 6];
+document.querySelectorAll('.plate .cells').forEach((el, i) => {
+  el.innerHTML = '<i></i>'.repeat(COUNTS[i]);
+});
+
+/* Seeded mesh so every regeneration of this card is identical. Same visual
+   language as the live ambient canvas: gold and cool nodes, edges fading with
+   distance, denser than the live version because this is a still. */
+(function () {
+  let seed = 20260912;
+  const rand = () => {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    return seed / 4294967296;
+  };
+
+  const c = document.getElementById('mesh');
+  const ctx = c.getContext('2d');
+  const W = 1200, H = 630;
+  const LINK = 168;
+
+  const nodes = [];
+  for (let i = 0; i < 150; i++) {
+    nodes.push({
+      x: rand() * W,
+      y: rand() * H,
+      r: 1.5 + rand() * 2.4,
+      gold: rand() < 0.42
+    });
+  }
+
+  ctx.lineWidth = 1;
+  for (let i = 0; i < nodes.length; i++) {
+    for (let k = i + 1; k < nodes.length; k++) {
+      const a = nodes[i], b = nodes[k];
+      const dx = a.x - b.x, dy = a.y - b.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d > LINK) continue;
+      const t = 1 - d / LINK;
+      ctx.strokeStyle = (a.gold && b.gold)
+        ? 'rgba(226,168,66,' + (t * 0.80).toFixed(3) + ')'
+        : 'rgba(156,182,202,' + (t * 0.46).toFixed(3) + ')';
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    }
+  }
+  for (const n of nodes) {
+    ctx.fillStyle = n.gold ? 'rgba(238,180,78,0.95)' : 'rgba(160,208,222,0.72)';
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+})();
+</script>
+</body>
+</html>
