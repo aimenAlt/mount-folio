@@ -7,7 +7,7 @@ Aimen Altaiyeb is a full stack software engineer at GoDaddy, working across the 
 ## Site
 
 - [Home](https://altaiyeb.info/): personal site — full stack software engineer
-- [Résumé (PDF)](https://altaiyeb.info/Aimen_Altaiyeb_Resume_WebPlatform.pdf): one-page résumé
+- [Résumé (PDF)](https://altaiyeb.info/Aimen_Altaiyeb_Resume_FullStack.pdf): one-page résumé
 - [Sitemap](https://altaiyeb.info/sitemap.xml): crawl map
 
 ## Focus
