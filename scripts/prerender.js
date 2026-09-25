@@ -51,7 +51,7 @@ const jsonLd = JSON.stringify({
         name: ed.school.split(' · ')[0],
         description: ed.degree
       })),
-      knowsAbout: data.about.toolkit,
+      knowsAbout: data.about.toolkit.flatMap((group) => group.items),
       subjectOf: {
         '@type': 'DigitalDocument',
         name: 'Résumé',
@@ -63,7 +63,7 @@ const jsonLd = JSON.stringify({
       '@type': 'WebPage',
       '@id': `${site}/#webpage`,
       url: `${site}/`,
-      name: `${data.brand} — Web Platform & Developer Experience`,
+      name: `${data.brand} — Full Stack Software Engineer`,
       description: data.hero.lede,
       about: { '@id': `${site}/#person` },
       mainEntity: { '@id': `${site}/#person` }
@@ -103,11 +103,11 @@ const llms = `# ${data.brand}
 
 > ${data.hero.lede}
 
-${data.brand} is a software engineer at GoDaddy, working on the customer-facing web platform and the release automation behind it. Based in ${based}, open to remote work.
+${data.brand} is a full stack software engineer at GoDaddy, working across the React frontend and the server-rendered Node.js layer of the customer-facing site, who also built the release automation that ships it. Based in ${based}, open to remote work.
 
 ## Site
 
-- [Home](${site}/): personal site — web platform and developer experience
+- [Home](${site}/): personal site — full stack software engineer
 - [Résumé (PDF)](${site}/${data.contact.resume}): one-page résumé
 - [Sitemap](${site}/sitemap.xml): crawl map
 
@@ -141,7 +141,7 @@ ${projects}
 
 ## Toolkit
 
-${data.about.toolkit.join(', ')}
+${data.about.toolkit.map((group) => `- ${group.label}: ${group.items.join(', ')}`).join('\n')}
 
 ## Contact
 

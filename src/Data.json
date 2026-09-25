@@ -3,16 +3,16 @@
 
   "nav": [
     { "label": "The platform", "href": "#platform" },
-    { "label": "The machine", "href": "#machine" },
+    { "label": "How it ships", "href": "#machine" },
     { "label": "Why it mattered", "href": "#stakes" },
     { "label": "Work", "href": "#work" },
     { "label": "About", "href": "#about" }
   ],
 
   "hero": {
-    "kicker": "Austin, TX · open to remote",
-    "headline": ["I build the site,", "and the machine", "that ships it."],
-    "lede": "Software engineer at GoDaddy on the platform behind our customer-facing web experience — Contentful-driven, server-rendered, three brands — plus the release automation that gets it to production safely.",
+    "kicker": "Full stack engineer · Austin, TX · open to remote",
+    "headline": ["I build the whole site,", "from the React component", "to the server behind it."],
+    "lede": "Full stack software engineer at GoDaddy. About half my work is React and TypeScript, half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions automation that ships it.",
     "legend": [
       { "swatch": "gold", "label": "Shared packages I maintain" },
       { "swatch": "dim", "label": "Rendering layer" },
@@ -26,19 +26,19 @@
     "heading": "Content goes in one end. A multi-brand website comes out the other.",
     "body": [
       "Editors author structured content in Contentful. It gets transformed and mapped onto a shared React and TypeScript component library, rendered server-side, and served as the customer-facing site across GoDaddy, Afternic, and 123 Reg — with routing, navigation, search, brand configuration, and internationalization all resolved along the way.",
-      "My team builds and maintains that chain. Not one application at the end of it — the transforms, the component interfaces, the rendering behavior, and the integrations with the other systems and the CDN that put it in front of people."
+      "I work across that whole chain, about half on the frontend and half on the server: the Node.js transforms and service integrations, the component interfaces, the rendering behavior, and the CDN delivery that puts it in front of people. In my first year I built and unit-tested features in the .NET Core (C#) services behind the site."
     ],
     "pipeline": [
       { "label": "Contentful" },
-      { "label": "Transform / facade", "tone": "gold" },
+      { "label": "Node.js server", "note": "transforms · service calls", "tone": "gold" },
       { "label": "Component mapping", "tone": "gold" },
       { "label": "SSR render + hydrate", "tone": "gold" },
       { "label": "Brand surfaces", "note": "GoDaddy · Afternic · 123 Reg", "tone": "cyan" }
     ],
-    "pipelineCaption": "integrations with other applications and CDN delivery",
+    "pipelineCaption": "integrations with other GoDaddy services and CDN delivery",
     "metrics": [
       { "value": "3", "tone": "cyan", "label": "brands on the shared platform" },
-      { "value": "100+", "tone": "gold", "label": "CI workflow runs on an active day" },
+      { "value": "$1M+", "tone": "gold", "label": "yearly revenue driven by a domain page I rebuilt" },
       { "value": "RTL", "tone": "cyan", "label": "internationalization, including right-to-left" }
     ],
     "cards": [
@@ -59,8 +59,8 @@
 
   "machine": {
     "lead": {
-      "heading": "About a third of my time goes here.",
-      "sub": "A platform this size releases constantly — the shared library publishes multiple times a day, and the site consumes it about as often. Below is what that used to cost, and what I built to stop paying it.",
+      "heading": "I also own how it ships.",
+      "sub": "The shared library publishes several times a day and the site consumes it about as often. Here is what that used to cost, and the GitHub Actions automation I built to stop paying it.",
       "note": "My manager and our technical program manager point people at me as the team's subject-matter expert for developer experience and CI/CD."
     },
     "kicker": "Case study 01",
@@ -117,23 +117,23 @@
     "metrics": [
       { "value": "20–40 min", "tone": "gold", "label": "of manual coordination removed per propagation" },
       { "value": "13", "tone": "cyan", "label": "packages in a representative build" },
-      { "value": "3", "tone": "cyan", "label": "brands on the shared platform" },
+      { "value": "100+", "tone": "gold", "label": "CI workflow runs on an active day" },
       { "value": "daily+", "tone": "gold", "label": "release cadence the automation keeps up with" }
     ]
   },
 
   "projects": [
     {
-      "kicker": "Orchestration",
-      "title": "A central release-orchestration layer",
-      "body": "Producer repo emits standard release metadata, a central layer validates it, and the downstream repo or deployment path picks it up. Repeated release logic lives behind reusable workflows and composite actions instead of being copy-pasted into every repository. Existing pipelines plug into it rather than being rewritten.",
-      "tags": ["GitHub Actions", "Reusable workflows", "Governance"]
+      "kicker": "Backend",
+      "title": "My first year: .NET Core services",
+      "body": "I was hired to write React and placed on the team that owned the site's .NET Core (C#) services, because that is where the need was. I learned C# on the job and spent the year building and unit-testing features in those services.",
+      "tags": ["C#", ".NET Core", "Unit testing"]
     },
     {
-      "kicker": "CI correctness",
-      "title": "Merge queues that actually validate",
-      "body": "A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.",
-      "tags": ["merge_group", "Concurrency", "CI caching"]
+      "kicker": "Commerce",
+      "title": "A domain page that drives $1M+ a year",
+      "body": "I rebuilt a gTLD domain product page that drives more than $1M a year in revenue, moved the domain experiences from class components to hooks, and extended the TLD-availability and domain-purchase integrations behind them.",
+      "tags": ["React", "Hooks", "Purchase flow", "Integrations"]
     },
     {
       "kicker": "Multi-brand platform",
@@ -142,38 +142,38 @@
       "tags": ["React", "TypeScript", "Monorepo"]
     },
     {
-      "kicker": "Browser platform",
-      "title": "Sticky-stack: independent roots, one stack",
-      "body": "The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.",
-      "tags": ["createPortal", "Custom hooks", "Layout"]
-    },
-    {
       "kicker": "Rendering",
       "title": "CMS to components, server-side",
       "body": "I contributed to the Sitecore to Contentful modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.",
       "tags": ["Sitecore", "Contentful", "Next.js", "SSR / hydration"]
     },
     {
-      "kicker": "Enablement",
-      "title": "A React bootcamp I wrote and taught",
-      "body": "Four hours, a progressive repository with structured branches, exercises and live instruction for interns. Turning what I know into something the team keeps is the same instinct as building a platform, just aimed at people.",
-      "tags": ["Teaching", "Docs", "Storybook"]
+      "kicker": "Browser platform",
+      "title": "Sticky-stack: independent roots, one stack",
+      "body": "The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.",
+      "tags": ["createPortal", "Custom hooks", "Layout"]
+    },
+    {
+      "kicker": "CI correctness",
+      "title": "Merge queues that actually validate",
+      "body": "A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.",
+      "tags": ["merge_group", "Concurrency", "CI caching"]
     }
   ],
 
   "about": {
-    "heading": "I kept drifting toward the layer underneath",
-    "sub": "I started in product-facing React work, but the things I kept volunteering for were one layer down. The word for what I'm after is leverage: a feature ships once, a platform gets used for years.",
+    "heading": "I learned the stack by going where the work was",
+    "sub": "I was hired to write React. The first real need was on the team that owned the site's .NET Core services, so I spent my first year learning C# there. Since then I've worked across the whole site: components, the server layer, the integrations, and the pipeline that ships it.",
     "more": [
-      "That thread runs through all of it — shared component architecture, theme and intent APIs, sticky-stack, release orchestration, merge queues, the bootcamp I wrote for interns.",
-      "I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at platform work than any framework has."
+      "What ties it together is leverage. A feature ships once; a shared component, a service integration or a release workflow gets used for years. It's also why I wrote and taught a four-hour React bootcamp for interns.",
+      "I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at engineering than any framework has."
     ],
     "trajectory": [
-      "Frontend features",
-      "Reusable components",
-      "Multi-brand platform",
-      "Release automation",
-      "Platform ownership, end to end"
+      "React features",
+      "C# services",
+      "Shared components",
+      "Server-rendered platform",
+      "Full stack, plus the pipeline"
     ],
     "cv": [
       { "org": "GoDaddy", "when": "Jan 2025 — now", "role": "Software Development Engineer II · Remote" },
@@ -185,16 +185,23 @@
       { "degree": "B.S., Computer Science", "school": "CSU Monterey Bay · 2022" }
     ],
     "toolkit": [
-      "React", "TypeScript", "Next.js · SSR", "GitHub Actions",
-      "Reusable workflows", "Composite actions", "Changesets", "Syncpack",
-      "Merge queues", "Monorepos", "Semantic versioning", "Jest · Cypress",
-      "Storybook", "Contentful", "Node.js", "Sitecore", "i18n", "Webpack",
-      "ESLint", "on-call / incident response"
+      {
+        "label": "Frontend",
+        "items": ["React", "TypeScript", "JavaScript", "Next.js · SSR", "Storybook", "i18n / RTL", "Jest · Cypress"]
+      },
+      {
+        "label": "Backend",
+        "items": ["Node.js", "C#", ".NET Core", "Contentful", "Service integrations", "CDN delivery"]
+      },
+      {
+        "label": "Delivery",
+        "items": ["GitHub Actions", "Reusable workflows", "Composite actions", "Merge queues", "Changesets", "Monorepos"]
+      }
     ]
   },
 
   "contact": {
-    "heading": "If your teams are waiting on the pipeline, that's my kind of problem.",
+    "heading": "If you need someone who can take a feature from the component to the server and ship it, let's talk.",
     "email": "aimen.altaiyeb@gmail.com",
     "resume": "Aimen_Altaiyeb_Resume_WebPlatform.pdf",
     "meta": [
@@ -205,8 +212,5 @@
     ]
   },
 
-  "footer": {
-    "left": "Aimen Altaiyeb — Web Platform & Developer Experience",
-    "right": "2026"
-  }
+  "footer": { "left": "Aimen Altaiyeb — Full Stack Software Engineer", "right": "2026" }
 }

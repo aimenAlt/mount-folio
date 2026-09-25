@@ -65,9 +65,14 @@ export default function About({ data }) {
 
           <div className="card">
             <p className="kicker gold">Toolkit</p>
-            <div className="chips">
-              {data.toolkit.map((t) => <span key={t}>{t}</span>)}
-            </div>
+            {data.toolkit.map((group) => (
+              <div className="tool-group" key={group.label}>
+                <p className="tool-label mono muted">{group.label}</p>
+                <div className="chips">
+                  {group.items.map((t) => <span key={t}>{t}</span>)}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

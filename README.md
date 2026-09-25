@@ -1,6 +1,6 @@
 # altaiyeb.info
 
-Personal site for Aimen Altaiyeb — frontend platform & developer experience.
+Personal site for Aimen Altaiyeb — full stack software engineer.
 
 Vite + React + Sass. No UI framework, no animation library: five dependencies
 total (`react`, `react-dom`, `sass`, `vite`, `@vitejs/plugin-react`).

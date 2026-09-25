@@ -1,6 +1,6 @@
 header {
   display: grid;
-  grid-template-columns: 1fr 1.02fr;
+  grid-template-columns: 1.12fr 0.9fr;
   gap: 40px;
   align-items: center;
   min-height: 88vh;
@@ -202,7 +202,7 @@ header {
     padding-bottom: 44px;
   }
 
-  h1 { font-size: clamp(38px, 11vw, 56px); }
+  header h1 { font-size: clamp(30px, 8.6vw, 56px); }
 
   .lede {
     font-size: 18px;
