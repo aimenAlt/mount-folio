@@ -1,22 +1,22 @@
 # Aimen Altaiyeb
 
-> Software engineer at GoDaddy on the platform behind our customer-facing web experience — Contentful-driven, server-rendered, three brands — plus the release automation that gets it to production safely.
+> Full stack software engineer at GoDaddy. About half my work is React and TypeScript, half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions automation that ships it.
 
-Aimen Altaiyeb is a software engineer at GoDaddy, working on the customer-facing web platform and the release automation behind it. Based in Austin, TX, open to remote work.
+Aimen Altaiyeb is a full stack software engineer at GoDaddy, working across the React frontend and the server-rendered Node.js layer of the customer-facing site, who also built the release automation that ships it. Based in Austin, TX, open to remote work.
 
 ## Site
 
-- [Home](https://altaiyeb.info/): personal site — web platform and developer experience
+- [Home](https://altaiyeb.info/): personal site — full stack software engineer
 - [Résumé (PDF)](https://altaiyeb.info/Aimen_Altaiyeb_Resume_WebPlatform.pdf): one-page résumé
 - [Sitemap](https://altaiyeb.info/sitemap.xml): crawl map
 
 ## Focus
 
-I started in product-facing React work, but the things I kept volunteering for were one layer down. The word for what I'm after is leverage: a feature ships once, a platform gets used for years.
+I was hired to write React. The first real need was on the team that owned the site's .NET Core services, so I spent my first year learning C# there. Since then I've worked across the whole site: components, the server layer, the integrations, and the pipeline that ships it.
 
-That thread runs through all of it — shared component architecture, theme and intent APIs, sticky-stack, release orchestration, merge queues, the bootcamp I wrote for interns.
+What ties it together is leverage. A feature ships once; a shared component, a service integration or a release workflow gets used for years. It's also why I wrote and taught a four-hour React bootcamp for interns.
 
-I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at platform work than any framework has.
+I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at engineering than any framework has.
 
 ## Platform
 
@@ -24,9 +24,9 @@ Content goes in one end. A multi-brand website comes out the other.
 
 Editors author structured content in Contentful. It gets transformed and mapped onto a shared React and TypeScript component library, rendered server-side, and served as the customer-facing site across GoDaddy, Afternic, and 123 Reg — with routing, navigation, search, brand configuration, and internationalization all resolved along the way.
 
-My team builds and maintains that chain. Not one application at the end of it — the transforms, the component interfaces, the rendering behavior, and the integrations with the other systems and the CDN that put it in front of people.
+I work across that whole chain, about half on the frontend and half on the server: the Node.js transforms and service integrations, the component interfaces, the rendering behavior, and the CDN delivery that puts it in front of people. In my first year I built and unit-tested features in the .NET Core (C#) services behind the site.
 
-Pipeline: Contentful → Transform / facade → Component mapping → SSR render + hydrate → Brand surfaces
+Pipeline: Contentful → Node.js server → Component mapping → SSR render + hydrate → Brand surfaces
 
 - Internationalization: Right-to-left layout and translation handling inside components that several brand experiences consume. A shared component can't assume the direction text runs.
 - React 18 → 19: Contributed to moving the shared platform onto React 19 — working the breaking changes across the component library and the applications that consume it, without a flag day for the teams downstream.
@@ -34,7 +34,7 @@ Pipeline: Contentful → Transform / facade → Component mapping → SSR render
 
 ## Case study
 
-About a third of my time goes here. A platform this size releases constantly — the shared library publishes multiple times a day, and the site consumes it about as often. Below is what that used to cost, and what I built to stop paying it.
+I also own how it ships. The shared library publishes several times a day and the site consumes it about as often. Here is what that used to cost, and the GitHub Actions automation I built to stop paying it.
 
 Every release used to be walked across four repositories by hand. So I built the thing that walks it. Press play.
 
@@ -44,16 +44,18 @@ Every release used to be walked across four repositories by hand. So I built the
 
 ## Other work
 
-- A central release-orchestration layer (Orchestration): Producer repo emits standard release metadata, a central layer validates it, and the downstream repo or deployment path picks it up. Repeated release logic lives behind reusable workflows and composite actions instead of being copy-pasted into every repository. Existing pipelines plug into it rather than being rewritten.
-- Merge queues that actually validate (CI correctness): A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.
+- My first year: .NET Core services (Backend): I was hired to write React and placed on the team that owned the site's .NET Core (C#) services, because that is where the need was. I learned C# on the job and spent the year building and unit-testing features in those services.
+- A domain page that drives $1M+ a year (Commerce): I rebuilt a gTLD domain product page that drives more than $1M a year in revenue, moved the domain experiences from class components to hooks, and extended the TLD-availability and domain-purchase integrations behind them.
 - One component, many brands (Multi-brand platform): Theme and intent abstractions that separate behavior and semantics from brand presentation, so shared React infrastructure serves several brand experiences without forking a component per brand.
-- Sticky-stack: independent roots, one stack (Browser platform): The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.
 - CMS to components, server-side (Rendering): I contributed to the Sitecore to Contentful modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.
-- A React bootcamp I wrote and taught (Enablement): Four hours, a progressive repository with structured branches, exercises and live instruction for interns. Turning what I know into something the team keeps is the same instinct as building a platform, just aimed at people.
+- Sticky-stack: independent roots, one stack (Browser platform): The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.
+- Merge queues that actually validate (CI correctness): A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.
 
 ## Toolkit
 
-React, TypeScript, Next.js · SSR, GitHub Actions, Reusable workflows, Composite actions, Changesets, Syncpack, Merge queues, Monorepos, Semantic versioning, Jest · Cypress, Storybook, Contentful, Node.js, Sitecore, i18n, Webpack, ESLint, on-call / incident response
+- Frontend: React, TypeScript, JavaScript, Next.js · SSR, Storybook, i18n / RTL, Jest · Cypress
+- Backend: Node.js, C#, .NET Core, Contentful, Service integrations, CDN delivery
+- Delivery: GitHub Actions, Reusable workflows, Composite actions, Merge queues, Changesets, Monorepos
 
 ## Contact
 
