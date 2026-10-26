@@ -2,6 +2,8 @@ import { useState } from 'react';
 import useReveal from '../../hooks/useReveal';
 import './Work.scss';
 
+const NUMBER_WORDS = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+
 /** Collapsed one-line rows — details only when asked for. */
 export default function Work({ projects }) {
   const [open, setOpen] = useState(null);
@@ -15,7 +17,7 @@ export default function Work({ projects }) {
           <span className="rule" />
           <span className="muted">on desktop, tap any row</span>
         </p>
-        <h2 className="display sm">Six more systems</h2>
+        <h2 className="display sm">{NUMBER_WORDS[projects.length] ?? projects.length} more systems</h2>
 
         <div className="rows">
           {projects.map((p, i) => (

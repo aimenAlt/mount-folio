@@ -26,8 +26,8 @@ export default function Stakes() {
           reach production.
         </h2>
         <p className="sub">
-          Some packages only work at matched versions — they have to go out together
-          or not at all. A human doing that by hand, several times a day, will
+          Some packages only work at matched versions. They have to go out together
+          or not at all. A human doing that by hand, release after release, will
           eventually get it wrong.
         </p>
 
@@ -64,7 +64,7 @@ export default function Stakes() {
               <h3>Visual and behavioral drift</h3>
               <p>
                 Half-updated shared components render inconsistently across brands
-                and pages — the kind of bug that gets filed five separate times
+                and pages. It&apos;s the kind of bug that gets filed again and again
                 before anyone traces it to a version.
               </p>
             </div>
@@ -87,7 +87,7 @@ export default function Stakes() {
             expensive in a way a release ticket never captures.
           </p>
           <p className="body">
-            I won&apos;t put a dollar figure on it — I never instrumented one, and
+            I won&apos;t put a dollar figure on it. I never instrumented one, and
             I&apos;d rather say that than invent it. What I can say precisely:
             reconciliation makes the broken combination <em className="red">unrepresentable</em>.
             The system can no longer emit a version set that doesn&apos;t hold

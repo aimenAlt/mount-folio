@@ -1,4 +1,4 @@
-import { readFile, writeFile, rm } from 'node:fs/promises';
+import { readFile, writeFile, rm, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -63,7 +63,7 @@ const jsonLd = JSON.stringify({
       '@type': 'WebPage',
       '@id': `${site}/#webpage`,
       url: `${site}/`,
-      name: `${data.brand} — Full Stack Software Engineer`,
+      name: 'Aimen Altaiyeb | Software Engineer | React, TypeScript, Next.js, Node.js',
       description: data.hero.lede,
       about: { '@id': `${site}/#person` },
       mainEntity: { '@id': `${site}/#person` }
@@ -103,11 +103,11 @@ const llms = `# ${data.brand}
 
 > ${data.hero.lede}
 
-${data.brand} is a full stack software engineer at GoDaddy, working across the React frontend and the server-rendered Node.js layer of the customer-facing site, who also built the release automation that ships it. Based in ${based}, open to remote work.
+${data.brand} is a software engineer with 5 years of experience. At GoDaddy he works across the React frontend and the server-rendered Node.js layer of the customer-facing site, and he built the GitHub Actions release automation that ships it. Based in ${based}, working remotely.
 
 ## Site
 
-- [Home](${site}/): personal site — full stack software engineer
+- [Home](${site}/): personal site of a software engineer (React, TypeScript, Next.js, Node.js)
 - [Résumé (PDF)](${site}/${data.contact.resume}): one-page résumé
 - [Sitemap](${site}/sitemap.xml): crawl map
 
@@ -152,3 +152,14 @@ ${data.about.toolkit.map((group) => `- ${group.label}: ${group.items.join(', ')}
 await writeFile(path.join(dist, 'llms.txt'), llms);
 
 await rm(ssrDir, { recursive: true, force: true });
+
+// Older résumé filenames were linked from the site at some point; serve the
+// current file under each of them so those links keep working.
+const legacyResumeNames = [
+  'Aimen-Altaiyeb-Resume.pdf',
+  'Aimen_Altaiyeb_Resume_FullStack.pdf',
+  'Aimen_Altaiyeb_Resume_WebPlatform.pdf'
+];
+for (const name of legacyResumeNames) {
+  await copyFile(path.join(dist, data.contact.resume), path.join(dist, name));
+}

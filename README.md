@@ -1,6 +1,6 @@
 # altaiyeb.info
 
-Personal site for Aimen Altaiyeb — full stack software engineer.
+Personal site for Aimen Altaiyeb, software engineer.
 
 Vite + React + Sass. No UI framework, no animation library: five dependencies
 total (`react`, `react-dom`, `sass`, `vite`, `@vitejs/plugin-react`).
@@ -47,8 +47,12 @@ you can delete or move. Only genuinely global vocabulary lives in `sass/default`
 | Prose that appears exactly once (headings, the stakes argument) | the component's `.jsx` |
 | Background density / speed / colour | `CONF` at the top of `components/Ambient/Ambient.jsx` |
 
-Hero and contact buttons download `public/Aimen-Altaiyeb-Resume.pdf` (served at
-the site root). Replace that file to update the résumé.
+Hero and contact buttons download the file named by `contact.resume` in
+`Data.json`, `public/Aimen_Altaiyeb_Resume.pdf` (served at the site root).
+Replace that one file to update the résumé. The build also copies it to the
+three older filenames (`Aimen-Altaiyeb-Resume.pdf`,
+`Aimen_Altaiyeb_Resume_FullStack.pdf`, `Aimen_Altaiyeb_Resume_WebPlatform.pdf`)
+so old links keep working.
 
 ## The two custom graphics
 

@@ -186,7 +186,7 @@ export default function Machine({ data }) {
               <h3>Reconciling state, not opening PRs</h3>
               <p className="body">
                 Releases overlap. Related packages travel in synchronized groups. A
-                naive consumer opens contradictory branches — so the system computes
+                naive consumer opens contradictory branches, so the system computes
                 the newest valid group before it emits anything downstream.
               </p>
               <div className="events">

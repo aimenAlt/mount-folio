@@ -10,9 +10,9 @@
   ],
 
   "hero": {
-    "kicker": "Full stack engineer · Austin, TX · open to remote",
+    "kicker": "Software engineer · Austin, TX (Remote)",
     "headline": ["I build the whole site,", "from the React component", "to the server behind it."],
-    "lede": "Full stack software engineer at GoDaddy. About half my work is React and TypeScript, half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions automation that ships it.",
+    "lede": "Software engineer with 5 years building customer-facing web apps in React, TypeScript, Next.js and Node.js. At GoDaddy, about half my work is React and TypeScript and half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions release automation that ships it.",
     "legend": [
       { "swatch": "gold", "label": "Shared packages I maintain" },
       { "swatch": "dim", "label": "Rendering layer" },
@@ -25,8 +25,8 @@
     "meta": "GoDaddy · Afternic · 123 Reg",
     "heading": "Content goes in one end. A multi-brand website comes out the other.",
     "body": [
-      "Editors author structured content in Contentful. It gets transformed and mapped onto a shared React and TypeScript component library, rendered server-side, and served as the customer-facing site across GoDaddy, Afternic, and 123 Reg — with routing, navigation, search, brand configuration, and internationalization all resolved along the way.",
-      "I work across that whole chain, about half on the frontend and half on the server: the Node.js transforms and service integrations, the component interfaces, the rendering behavior, and the CDN delivery that puts it in front of people. In my first year I built and unit-tested features in the .NET Core (C#) services behind the site."
+      "Editors author structured content in Contentful. It gets transformed and mapped onto a shared React and TypeScript component library, rendered server-side, and served as the customer-facing site across GoDaddy, Afternic, and 123 Reg, with routing, navigation, search, brand configuration, and internationalization all resolved along the way.",
+      "I work across that whole chain, about half on the frontend and half on the server: the Node.js transforms and service integrations, the component interfaces, the rendering behavior, and the CDN delivery that puts it in front of people."
     ],
     "pipeline": [
       { "label": "Contentful" },
@@ -48,7 +48,7 @@
       },
       {
         "title": "React 18 → 19",
-        "body": "Contributed to moving the shared platform onto React 19 — working the breaking changes across the component library and the applications that consume it, without a flag day for the teams downstream."
+        "body": "Contributed to moving the shared platform onto React 19, working the breaking changes across the component library and the applications that consume it, without a flag day for the teams downstream."
       },
       {
         "title": "Content-to-component alignment",
@@ -59,13 +59,13 @@
 
   "machine": {
     "lead": {
-      "heading": "I also own how it ships.",
-      "sub": "The shared library publishes several times a day and the site consumes it about as often. Here is what that used to cost, and the GitHub Actions automation I built to stop paying it.",
-      "note": "My manager and our technical program manager point people at me as the team's subject-matter expert for developer experience and CI/CD."
+      "heading": "I also built the way it ships.",
+      "sub": "The shared library publishes often, and the site has to pick up every release. Here is what that used to cost, and the GitHub Actions automation I built to stop paying it.",
+      "note": "My manager and our technical program manager treat me as the team's CI/CD expert, and I'm the primary CI/CD reviewer across frontend teams."
     },
     "kicker": "Case study 01",
-    "meta": "GoDaddy · 4 repositories",
-    "heading": "Every release used to be walked across four repositories by hand.",
+    "meta": "GoDaddy · cross-repo",
+    "heading": "Every release used to be walked across repositories by hand.",
     "sub": "So I built the thing that walks it. Press play.",
     "chain": {
       "before": [
@@ -115,20 +115,12 @@
       }
     ],
     "metrics": [
-      { "value": "20–40 min", "tone": "gold", "label": "of manual coordination removed per propagation" },
       { "value": "13", "tone": "cyan", "label": "packages in a representative build" },
-      { "value": "100+", "tone": "gold", "label": "CI workflow runs on an active day" },
-      { "value": "daily+", "tone": "gold", "label": "release cadence the automation keeps up with" }
+      { "value": "100+", "tone": "gold", "label": "CI workflow runs on an active day" }
     ]
   },
 
   "projects": [
-    {
-      "kicker": "Backend",
-      "title": "My first year: .NET Core services",
-      "body": "I was hired to write React and placed on the team that owned the site's .NET Core (C#) services, because that is where the need was. I learned C# on the job and spent the year building and unit-testing features in those services.",
-      "tags": ["C#", ".NET Core", "Unit testing"]
-    },
     {
       "kicker": "Commerce",
       "title": "A domain page that drives $1M+ a year",
@@ -144,33 +136,33 @@
     {
       "kicker": "Rendering",
       "title": "CMS to components, server-side",
-      "body": "I contributed to the Sitecore to Contentful modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser — no assumed window, no hydration surprises.",
+      "body": "I contributed to the Sitecore to Contentful modernization on the shared rendering layer: content transforms, a facade and component map, and shared packages that behave the same on the server as in the browser: no assumed window, no hydration surprises.",
       "tags": ["Sitecore", "Contentful", "Next.js", "SSR / hydration"]
     },
     {
       "kicker": "Browser platform",
       "title": "Sticky-stack: independent roots, one stack",
-      "body": "The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide — no shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.",
+      "body": "The CMS could render three sticky navigation elements as separate React roots, so top: 0 made them collide. No shared parent owned the layout. I built a portal-based stacking surface with a registry, deterministic ordering and measured dynamic offsets, exposed to product teams as a single hook.",
       "tags": ["createPortal", "Custom hooks", "Layout"]
     },
     {
       "kicker": "CI correctness",
       "title": "Merge queues that actually validate",
-      "body": "A merge queue evaluates a temporary merge-group state, not the PR head — so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.",
+      "body": "A merge queue evaluates a temporary merge-group state, not the PR head, so required checks have to understand that path or they are validating the wrong thing. I made merge-group validation correct first, then cut waste: selective execution, cancelling superseded runs, and reusing cached build output.",
       "tags": ["merge_group", "Concurrency", "CI caching"]
     }
   ],
 
   "about": {
     "heading": "I learned the stack by going where the work was",
-    "sub": "I was hired to write React. The first real need was on the team that owned the site's .NET Core services, so I spent my first year learning C# there. Since then I've worked across the whole site: components, the server layer, the integrations, and the pipeline that ships it.",
+    "sub": "I was hired to write React. The first real need was on a backend team, in a language I'd never used, so I learned it on the job and spent my first year there. Since then I've worked across the whole site: components, the server layer, the integrations, and the pipeline that ships it.",
     "more": [
-      "What ties it together is leverage. A feature ships once; a shared component, a service integration or a release workflow gets used for years. It's also why I wrote and taught a four-hour React bootcamp for interns.",
-      "I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it — and where I haven't yet. That habit has made me better at engineering than any framework has."
+      "What ties it together is leverage. A feature ships once; a shared component, a service integration or a release workflow gets used for years. It's also why I wrote and taught a React bootcamp for interns.",
+      "I'm also careful about what I claim. If I tell you a system saved time, I'll tell you how I'd measure it, and where I haven't yet. That habit has made me better at engineering than any framework has."
     ],
     "trajectory": [
       "React features",
-      "C# services",
+      "Backend services",
       "Shared components",
       "Server-rendered platform",
       "Full stack, plus the pipeline"
@@ -178,10 +170,10 @@
     "cv": [
       { "org": "GoDaddy", "when": "Jan 2025 — now", "role": "Software Development Engineer II · Remote" },
       { "org": "GoDaddy", "when": "Jul 2022 — Jan 2025", "role": "Software Development Engineer · Remote" },
-      { "org": "Revature", "when": "2021 — 2022", "role": "Software Engineer · Verizon engagement" }
+      { "org": "Revature", "when": "Sep 2021 — May 2022", "role": "Software Engineer · Verizon engagement" }
     ],
     "education": [
-      { "degree": "M.B.A., IT Management", "school": "Western Governors University · 2025" },
+      { "degree": "M.B.A., Information Technology Management", "school": "Western Governors University · 2025" },
       { "degree": "B.S., Computer Science", "school": "CSU Monterey Bay · 2022" }
     ],
     "toolkit": [
@@ -191,7 +183,7 @@
       },
       {
         "label": "Backend",
-        "items": ["Node.js", "C#", ".NET Core", "Contentful", "Service integrations", "CDN delivery"]
+        "items": ["Node.js", "Contentful", "Service integrations", "CDN delivery"]
       },
       {
         "label": "Delivery",
@@ -203,7 +195,7 @@
   "contact": {
     "heading": "If you need someone who can take a feature from the component to the server and ship it, let's talk.",
     "email": "aimen.altaiyeb@gmail.com",
-    "resume": "Aimen_Altaiyeb_Resume_FullStack.pdf",
+    "resume": "Aimen_Altaiyeb_Resume.pdf",
     "meta": [
       { "key": "based", "value": "Austin, TX" },
       { "key": "linkedin", "value": "in/aimen-altaiyeb", "href": "https://linkedin.com/in/aimen-altaiyeb" },
@@ -212,5 +204,5 @@
     ]
   },
 
-  "footer": { "left": "Aimen Altaiyeb — Full Stack Software Engineer", "right": "2026" }
+  "footer": { "left": "Aimen Altaiyeb | Software Engineer", "right": "2026" }
 }
