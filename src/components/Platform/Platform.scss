@@ -33,13 +33,13 @@ $pipe-gap: 30px;
   // Tinted at the ends: where content enters, and where it comes out. The
   // middle three are the layer this team owns, so they carry the gold.
   &.gold {
-    background: oklch(0.24 0.024 76);
-    border-color: oklch(0.44 0.06 76);
+    background: var(--tint-gold);
+    border-color: var(--pipe-gold-line);
   }
 
   &.cyan {
-    background: oklch(0.23 0.026 196);
-    border-color: oklch(0.42 0.055 196);
+    background: var(--tint-cyan);
+    border-color: var(--tint-cyan-line);
   }
 
   // The connector, drawn into the gap on this node's right.

@@ -1,6 +1,6 @@
 #contact {
-  background: oklch(0.21 0.020 76 / 0.86);
-  border-top: 1px solid oklch(0.34 0.03 76);
+  background: var(--contact-bg);
+  border-top: 1px solid var(--contact-line);
   padding-bottom: 108px;
 
   .display {
@@ -28,7 +28,7 @@
     justify-content: space-between;
     gap: 16px;
     padding-bottom: 12px;
-    border-bottom: 1px solid oklch(0.32 0.02 76);
+    border-bottom: 1px solid var(--meta-line);
 
     &:last-child {
       border-bottom: none;
@@ -36,7 +36,7 @@
     }
   }
 
-  dt { color: oklch(0.66 0.01 76); }
+  dt { color: var(--meta-key); }
   dd { margin: 0; }
 }
 

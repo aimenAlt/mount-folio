@@ -30,7 +30,7 @@ nav {
   display: none;
   padding: 7px 14px;
   border-radius: 999px;
-  border: 1px solid oklch(0.36 0.012 62);
+  border: 1px solid var(--btn-mono-line);
   background: transparent;
   font-family: var(--mono);
   font-size: 12px;
@@ -53,9 +53,9 @@ nav {
   text-transform: uppercase;
 
   a {
-    color: oklch(0.78 0.01 72);
+    color: var(--nav-link);
 
-    &.is-here { color: oklch(0.84 0.10 76); }
+    &.is-here { color: var(--nav-link-here); }
   }
 }
 
@@ -70,7 +70,7 @@ nav {
   text-transform: uppercase;
   flex: none;
 
-  &:hover { background: oklch(0.88 0.10 76); }
+  &:hover { background: var(--gold-hover); }
 }
 
 @media (max-width: 1020px) {

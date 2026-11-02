@@ -144,7 +144,7 @@ export default function Machine({ data }) {
                 className="kicker"
                 style={{
                   color: active && active[1] === 'human'
-                    ? 'oklch(0.70 0.15 32)'
+                    ? 'var(--red-step)'
                     : 'var(--gold)'
                 }}
               >
@@ -157,7 +157,7 @@ export default function Machine({ data }) {
                 <p className="tiny">Human touchpoints</p>
                 <p
                   className="num"
-                  style={{ color: mode === 'before' ? 'oklch(0.68 0.16 32)' : 'var(--gold)' }}
+                  style={{ color: mode === 'before' ? 'var(--red-count)' : 'var(--gold)' }}
                 >
                   {humanTotal}
                 </p>

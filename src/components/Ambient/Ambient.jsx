@@ -3,6 +3,24 @@ import useReducedMotion from '../../hooks/useReducedMotion';
 import { AMBIENT_CONF as CONF, LOW_POWER } from '../../utils/device';
 import './Ambient.scss';
 
+/* The canvas cannot follow the CSS tokens, so each colour scheme carries its own
+   mesh colours. Light trades glow for ink: darker amber and slate at lower
+   alpha, so the mesh reads on paper without muddying the copy above it. */
+const MESH = {
+  dark: {
+    goldEdge: ['rgba(226, 168, 66, ', 0.80],
+    coolEdge: ['rgba(156, 182, 202, ', 0.46],
+    goldNode: 'rgba(238, 180, 78, 0.95)',
+    coolNode: 'rgba(160, 208, 222, 0.72)'
+  },
+  light: {
+    goldEdge: ['rgba(190, 128, 34, ', 0.55],
+    coolEdge: ['rgba(88, 112, 134, ', 0.30],
+    goldNode: 'rgba(204, 140, 40, 0.85)',
+    coolNode: 'rgba(78, 140, 164, 0.60)'
+  }
+};
+
 /**
  * Ambient background: a slowly drifting mesh of nodes and the edges between
  * them — a dependency graph that never stops rearranging itself. Tuned to be
@@ -41,6 +59,9 @@ export default function Ambient() {
     let lockedH = LOW_POWER
       ? Math.max(window.innerHeight, window.screen ? window.screen.height : 0)
       : 0;
+
+    const light = window.matchMedia('(prefers-color-scheme: light)');
+    let mesh = light.matches ? MESH.light : MESH.dark;
 
     function build(count) {
       nodes = [];
@@ -128,13 +149,11 @@ export default function Ambient() {
           (a.gold && b.gold ? goldPath : coolPath).push(a.x, a.y, b.x, b.y, t);
         }
       }
-      strokeBatch(goldPath, 'rgba(226, 168, 66, ', 0.80);
-      strokeBatch(coolPath, 'rgba(156, 182, 202, ', 0.46);
+      strokeBatch(goldPath, ...mesh.goldEdge);
+      strokeBatch(coolPath, ...mesh.coolEdge);
 
       for (const n of nodes) {
-        ctx.fillStyle = n.gold
-          ? 'rgba(238, 180, 78, 0.95)'
-          : 'rgba(160, 208, 222, 0.72)';
+        ctx.fillStyle = n.gold ? mesh.goldNode : mesh.coolNode;
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
@@ -151,14 +170,22 @@ export default function Ambient() {
     };
     const onOrientation = () => { lockedH = 0; resize(true); };
 
+    // A still canvas has to be redrawn by hand; a running one picks it up next frame.
+    const onScheme = () => {
+      mesh = light.matches ? MESH.light : MESH.dark;
+      if (reduced) draw(0);
+    };
+
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('orientationchange', onOrientation, { passive: true });
+    light.addEventListener('change', onScheme);
 
     if (reduced) {
       draw(0);
       return () => {
         window.removeEventListener('resize', onResize);
         window.removeEventListener('orientationchange', onOrientation);
+        light.removeEventListener('change', onScheme);
       };
     }
 
@@ -193,6 +220,7 @@ export default function Ambient() {
       if (raf) cancelAnimationFrame(raf);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('orientationchange', onOrientation);
+      light.removeEventListener('change', onScheme);
       document.removeEventListener('visibilitychange', onVisibility);
     };
   }, [reduced]);

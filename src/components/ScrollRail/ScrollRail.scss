@@ -13,5 +13,5 @@
   width: 2px;
   height: 0;
   background: linear-gradient(to bottom, var(--gold-dim), var(--gold));
-  box-shadow: 0 0 12px oklch(0.72 0.12 76 / 0.6);
+  box-shadow: 0 0 12px var(--rail-glow);
 }
