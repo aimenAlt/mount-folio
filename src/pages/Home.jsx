@@ -10,9 +10,9 @@ const Home = ({ hero, platform, machine, projects, about, contact }) => (
   <>
     <Hero data={hero} resume={contact.resume} />
     <Platform data={platform} />
+    <Work projects={projects} />
     <Machine data={machine} />
     <Stakes />
-    <Work projects={projects} />
     <About data={about} />
     <Contact data={contact} />
   </>

@@ -38,6 +38,11 @@ export default function Work({ projects }) {
                   <div className="tags">
                     {p.tags.map((t) => <span key={t}>{t}</span>)}
                   </div>
+                  {p.link && (
+                    <a className="row-link" href={p.link.href} target="_blank" rel="noopener noreferrer">
+                      {p.link.label} ↗
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

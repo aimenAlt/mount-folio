@@ -3,16 +3,16 @@
 
   "nav": [
     { "label": "The platform", "href": "#platform" },
+    { "label": "Work", "href": "#work" },
     { "label": "How it ships", "href": "#machine" },
     { "label": "Why it mattered", "href": "#stakes" },
-    { "label": "Work", "href": "#work" },
     { "label": "About", "href": "#about" }
   ],
 
   "hero": {
     "kicker": "Software engineer · Austin, TX (Remote)",
     "headline": ["I build the whole site,", "from the React component", "to the server behind it."],
-    "lede": "Software engineer with 5 years building customer-facing web apps in React, TypeScript, Next.js and Node.js. At GoDaddy, about half my work is React and TypeScript and half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions release automation that ships it.",
+    "lede": "Software engineer with 5 years building customer-facing web apps in React, TypeScript, Next.js and Node.js. At GoDaddy, about half my work is React and TypeScript and half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions release automation that ships it. On my own, I founded Ramblett, a capture-first organizer for iOS, Android and web.",
     "legend": [
       { "swatch": "gold", "label": "Shared packages I maintain" },
       { "swatch": "dim", "label": "Rendering layer" },
@@ -122,6 +122,13 @@
 
   "projects": [
     {
+      "kicker": "Independent · founder",
+      "title": "Ramblett: one codebase, three platforms",
+      "body": "I defined and shipped Ramblett, a capture-first organizer for notes, to-dos and events, on one Expo and React codebase for iOS, Android and web, backed by 18 Supabase edge functions and 40 row-level-secured Postgres tables. Deterministic intent, date and PII-redaction code wraps a single bounded LLM call with provider failover, and a 326-case eval behind 16 CI gates picked the model on measured cost (under $0.0005 per capture) and latency. I directed the build end to end with Claude Code across 1,600+ commits.",
+      "tags": ["Expo", "React Native", "Supabase", "Postgres · RLS", "LLM evals"],
+      "link": { "href": "https://app.ramblett.com", "label": "app.ramblett.com" }
+    },
+    {
       "kicker": "Commerce",
       "title": "A domain page that drives $1M+ a year",
       "body": "I rebuilt a gTLD domain product page that drives more than $1M a year in revenue, moved the domain experiences from class components to hooks, and extended the TLD-availability and domain-purchase integrations behind them.",
@@ -168,6 +175,7 @@
       "Full stack, plus the pipeline"
     ],
     "cv": [
+      { "org": "Ramblett", "when": "2026", "role": "Founder, product and technical lead · independent" },
       { "org": "GoDaddy", "when": "Jan 2025 — now", "role": "Software Development Engineer II · Remote" },
       { "org": "GoDaddy", "when": "Jul 2022 — Jan 2025", "role": "Software Development Engineer · Remote" },
       { "org": "Revature", "when": "Sep 2021 — May 2022", "role": "Software Engineer · Verizon engagement" }
@@ -179,11 +187,11 @@
     "toolkit": [
       {
         "label": "Frontend",
-        "items": ["React", "TypeScript", "JavaScript", "Next.js · SSR", "Storybook", "i18n / RTL", "Jest · Cypress"]
+        "items": ["React", "TypeScript", "JavaScript", "Next.js · SSR", "Expo · React Native", "Storybook", "i18n / RTL", "Jest · Cypress · Playwright"]
       },
       {
         "label": "Backend",
-        "items": ["Node.js", "Contentful", "Service integrations", "CDN delivery"]
+        "items": ["Node.js", "Supabase · Postgres", "Contentful", "Service integrations", "CDN delivery"]
       },
       {
         "label": "Delivery",

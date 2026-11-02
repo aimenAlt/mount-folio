@@ -23,7 +23,7 @@
     }
 
     .row-body {
-      max-height: 420px;
+      max-height: 760px;
       opacity: 1;
     }
   }
@@ -107,6 +107,15 @@
     background: var(--card-2);
     color: var(--ink-3);
   }
+}
+
+.row-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--gold);
 }
 
 @media (max-width: 700px) {
