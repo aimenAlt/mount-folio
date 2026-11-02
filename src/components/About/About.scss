@@ -14,18 +14,18 @@
   span {
     padding: 8px 13px;
     border-radius: 9px;
-    background: oklch(0.23 0.014 62);
+    background: var(--traj-bg);
     border: 1px solid var(--line);
 
     &.on {
-      background: oklch(0.26 0.030 76);
-      border-color: oklch(0.58 0.09 76);
+      background: var(--traj-on);
+      border-color: var(--traj-on-line);
       color: var(--ink);
     }
   }
 
   b {
-    color: oklch(0.48 0.01 74);
+    color: var(--traj-arrow);
     font-weight: 400;
   }
 }
@@ -38,13 +38,13 @@
   hr {
     border: none;
     height: 1px;
-    background: oklch(0.28 0.012 62);
+    background: var(--cv-rule);
     margin: 0;
   }
 
   p {
     font-size: 15px;
-    color: oklch(0.76 0.01 76);
+    color: var(--cv-ink);
     margin: 3px 0 0;
   }
 
@@ -74,7 +74,7 @@
     padding: 7px 12px;
     border-radius: 999px;
     background: var(--card-2);
-    color: oklch(0.86 0.008 80);
+    color: var(--chip-ink);
     font-size: 14px;
   }
 }

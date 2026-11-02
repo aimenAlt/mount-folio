@@ -47,8 +47,8 @@ header {
   margin: -330px 0 0 -330px;
   border-radius: 50%;
   background: radial-gradient(circle,
-    oklch(0.40 0.08 76 / 0.26) 0%,
-    oklch(0.30 0.06 196 / 0.10) 46%,
+    var(--rig-glow-gold) 0%,
+    var(--rig-glow-cyan) 46%,
     transparent 70%);
 }
 
@@ -73,9 +73,9 @@ header {
   margin-left: -1px;
   transform-origin: 50% 100%;
   background: linear-gradient(to top,
-    oklch(0.82 0.12 76 / 0),
-    oklch(0.82 0.12 76 / 0.85),
-    oklch(0.82 0.12 76 / 0));
+    var(--beam-fade),
+    var(--beam),
+    var(--beam-fade));
   animation: beamPulse 4.6s ease-in-out infinite;
 
   &.b1 { transform: translate3d(-104px, -104px, 0) rotateX(-90deg); }
@@ -98,24 +98,24 @@ header {
   &.plate-1 {
     width: 300px; height: 300px; margin: -150px 0 0 -150px;
     transform: translateZ(0);
-    border: 1px solid oklch(0.74 0.11 76);
-    background: oklch(0.26 0.030 76 / 0.92);
-    box-shadow: 0 0 60px oklch(0.60 0.10 76 / 0.28);
+    border: 1px solid var(--plate-1-line);
+    background: var(--plate-1-bg);
+    box-shadow: 0 0 60px var(--plate-1-glow);
 
     .cells {
       inset: 47px;
       grid-template-columns: repeat(4, 44px);
       grid-auto-rows: 44px;
 
-      i { background: oklch(0.44 0.07 76); border-color: oklch(0.62 0.09 76); }
+      i { background: var(--cell-gold-bg); border-color: var(--cell-gold-line); }
     }
   }
 
   &.plate-2 {
     width: 268px; height: 268px; margin: -134px 0 0 -134px;
     transform: translateZ(106px);
-    border: 1px solid oklch(0.52 0.06 76);
-    background: oklch(0.23 0.018 68 / 0.9);
+    border: 1px solid var(--plate-2-line);
+    background: var(--plate-2-bg);
 
     .cells { inset: 52px; grid-template-columns: repeat(3, 48px); grid-auto-rows: 48px; }
   }
@@ -123,23 +123,23 @@ header {
   &.plate-3 {
     width: 236px; height: 236px; margin: -118px 0 0 -118px;
     transform: translateZ(212px);
-    border: 1px solid oklch(0.56 0.09 196);
-    background: oklch(0.22 0.022 196 / 0.9);
+    border: 1px solid var(--plate-3-line);
+    background: var(--plate-3-bg);
 
     .cells {
       inset: 51px;
       grid-template-columns: repeat(2, 62px);
       grid-auto-rows: 62px;
 
-      i { background: oklch(0.34 0.045 196); border-color: oklch(0.50 0.07 196); }
+      i { background: var(--cell-cyan-bg); border-color: var(--cell-cyan-line); }
     }
   }
 
   &.plate-4 {
     width: 204px; height: 204px; margin: -102px 0 0 -102px;
     transform: translateZ(318px);
-    border: 1px solid oklch(0.44 0.01 74);
-    background: oklch(0.21 0.012 62 / 0.9);
+    border: 1px solid var(--plate-4-line);
+    background: var(--plate-4-bg);
 
     .cells { inset: 32px; grid-template-columns: repeat(3, 40px); grid-auto-rows: 40px; }
   }
@@ -154,8 +154,8 @@ header {
 
   i {
     border-radius: 5px;
-    background: oklch(0.34 0.02 70);
-    border: 1px solid oklch(0.44 0.03 70);
+    background: var(--cell-bg);
+    border: 1px solid var(--cell-line);
   }
 }
 

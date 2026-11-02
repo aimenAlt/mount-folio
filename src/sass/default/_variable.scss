@@ -1,5 +1,9 @@
 // Global tokens. Kept as CSS custom properties (not Sass variables) so they
 // stay readable in devtools and can be themed at runtime.
+//
+// Dark is the default. Every colour a component paints lives here, so the
+// `prefers-color-scheme: light` block below is the whole light theme. A colour
+// hardcoded in a component .scss will not follow the visitor's setting.
 
 :root {
   --bg:        oklch(0.15 0.012 62);
@@ -15,10 +19,124 @@
   --ink-3: oklch(0.72 0.01 76);
   --ink-4: oklch(0.74 0.01 74);
 
-  --gold:     oklch(0.82 0.12 76);
-  --gold-dim: oklch(0.50 0.07 76);
-  --cyan:     oklch(0.78 0.13 196);
-  --red:      oklch(0.68 0.15 32);
+  --gold:       oklch(0.82 0.12 76);
+  --gold-dim:   oklch(0.50 0.07 76);
+  --gold-hover: oklch(0.88 0.10 76);
+  --cyan:       oklch(0.78 0.13 196);
+  --red:        oklch(0.68 0.15 32);
+
+  // Red text. Close siblings, kept apart so dark renders exactly as designed.
+  --red-kicker:   oklch(0.72 0.15 32);
+  --red-step:     oklch(0.70 0.15 32);
+  --red-count:    oklch(0.68 0.16 32);
+  --red-legend:   oklch(0.68 0.13 32);
+  --red-fracture: oklch(0.70 0.14 32);
+  --gold-legend:  oklch(0.74 0.10 76);
+
+  // Surfaces
+  --band-bg:       oklch(0.185 0.013 62 / 0.62);
+  --band-red-bg:   oklch(0.17 0.020 32 / 0.70);
+  --band-red-line: oklch(0.30 0.03 32);
+  --card-bg:       oklch(0.215 0.014 62 / 0.8);
+  --footer-bg:     oklch(0.15 0.012 62 / 0.82);
+  --tint-gold:      oklch(0.24 0.024 76);
+  --tint-gold-line: oklch(0.56 0.09 76);
+  --tint-cyan:      oklch(0.23 0.026 196);
+  --tint-cyan-line: oklch(0.42 0.055 196);
+
+  // Controls
+  --btn-ghost-line:       oklch(0.34 0.012 62);
+  --btn-ghost-line-hover: oklch(0.56 0.012 62);
+  --btn-ghost-ink:        oklch(0.90 0.008 82);
+  --btn-mono-line:        oklch(0.36 0.012 62);
+  --seg-line:             oklch(0.32 0.012 62);
+  --nav-link:             oklch(0.78 0.01 72);
+  --nav-link-here:        oklch(0.84 0.10 76);
+
+  // Swatches: the same fills as the hero cells and the chain nodes they label.
+  --sw-gold-bg:   oklch(0.44 0.07 76);
+  --sw-gold-line: oklch(0.62 0.09 76);
+  --sw-dim-bg:    oklch(0.34 0.02 70);
+  --sw-dim-line:  oklch(0.46 0.03 70);
+  --sw-cyan-bg:   oklch(0.34 0.045 196);
+  --sw-cyan-line: oklch(0.52 0.07 196);
+  --sw-red-bg:    oklch(0.46 0.13 32);
+  --sw-red-line:  oklch(0.62 0.16 32);
+
+  // Hero rig
+  --rig-glow-gold: oklch(0.40 0.08 76 / 0.26);
+  --rig-glow-cyan: oklch(0.30 0.06 196 / 0.10);
+  --beam:          oklch(0.82 0.12 76 / 0.85);
+  --beam-fade:     oklch(0.82 0.12 76 / 0);
+  --plate-1-bg:     oklch(0.26 0.030 76 / 0.92);
+  --plate-1-line:   oklch(0.74 0.11 76);
+  --plate-1-glow:   oklch(0.60 0.10 76 / 0.28);
+  --plate-2-bg:     oklch(0.23 0.018 68 / 0.9);
+  --plate-2-line:   oklch(0.52 0.06 76);
+  --plate-3-bg:     oklch(0.22 0.022 196 / 0.9);
+  --plate-3-line:   oklch(0.56 0.09 196);
+  --plate-4-bg:     oklch(0.21 0.012 62 / 0.9);
+  --plate-4-line:   oklch(0.44 0.01 74);
+  --cell-bg:        oklch(0.34 0.02 70);
+  --cell-line:      oklch(0.44 0.03 70);
+  --cell-gold-bg:   oklch(0.44 0.07 76);
+  --cell-gold-line: oklch(0.62 0.09 76);
+  --cell-cyan-bg:   oklch(0.34 0.045 196);
+  --cell-cyan-line: oklch(0.50 0.07 196);
+
+  // Machine chain: red vs gold, at rest, done and lit.
+  --node-human:           oklch(0.42 0.10 32);
+  --node-human-line:      oklch(0.56 0.14 32);
+  --node-auto:            oklch(0.40 0.055 76);
+  --node-auto-line:       oklch(0.54 0.075 76);
+  --node-human-done:      oklch(0.46 0.13 32);
+  --node-human-done-line: oklch(0.62 0.16 32);
+  --node-auto-done:       oklch(0.52 0.08 76);
+  --node-auto-done-line:  oklch(0.68 0.10 76);
+  --node-human-on:        oklch(0.66 0.19 32);
+  --node-human-on-line:   oklch(0.80 0.17 32);
+  --node-human-on-glow:   oklch(0.62 0.18 32 / 0.55);
+  --node-auto-on:         oklch(0.84 0.13 76);
+  --node-auto-on-line:    oklch(0.92 0.11 76);
+  --node-auto-on-glow:    oklch(0.76 0.13 76 / 0.55);
+
+  // Platform pipeline
+  --pipe-gold-line: oklch(0.44 0.06 76);
+
+  // Stakes
+  --pkg-ok-line:   oklch(0.50 0.07 76);
+  --pkg-bad:       oklch(0.25 0.045 32);
+  --pkg-bad-line:  oklch(0.52 0.14 32);
+  --fracture:      oklch(0.60 0.14 32);
+  --prod:          oklch(0.28 0.06 32);
+  --prod-line:     oklch(0.58 0.16 32);
+  --blast:         oklch(0.22 0.045 32);
+  --blast-line:    oklch(0.42 0.09 32);
+  --blast-ink:     oklch(0.80 0.02 40);
+
+  // Work rows
+  --rows-gap:      oklch(0.26 0.012 62 / 0.7);
+  --row-bg:        oklch(0.19 0.013 62 / 0.72);
+  --row-open:      oklch(0.215 0.016 62);
+  --row-hover-a:   oklch(0.23 0.020 76);
+  --row-hover-b:   oklch(0.205 0.014 62);
+
+  // About
+  --traj-bg:      oklch(0.23 0.014 62);
+  --traj-on:      oklch(0.26 0.030 76);
+  --traj-on-line: oklch(0.58 0.09 76);
+  --traj-arrow:   oklch(0.48 0.01 74);
+  --cv-rule:      oklch(0.28 0.012 62);
+  --cv-ink:       oklch(0.76 0.01 76);
+  --chip-ink:     oklch(0.86 0.008 80);
+
+  // Contact
+  --contact-bg:   oklch(0.21 0.020 76 / 0.86);
+  --contact-line: oklch(0.34 0.03 76);
+  --meta-line:    oklch(0.32 0.02 76);
+  --meta-key:     oklch(0.66 0.01 76);
+
+  --rail-glow: oklch(0.72 0.12 76 / 0.6);
 
   --serif: Newsreader, Georgia, serif;
   --sans: "DM Sans", system-ui, -apple-system, sans-serif;
@@ -27,4 +145,133 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --wrap: 1080px;
   --gutter: clamp(32px, 6vw, 92px);
+}
+
+// Light: warm parchment, not white. Surfaces stay in a narrow, slightly dimmed
+// band so a full page never glares, and the ink stops short of black. Accents
+// drop in lightness until text clears WCAG AA on the dimmest surface they sit
+// on; fills and lines invert so the darkest thing on the page is still the ink.
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:        oklch(0.935 0.017 80);
+    --bg-band:   oklch(0.915 0.020 78);
+    --bg-red:    oklch(0.92 0.028 40);
+    --card:      oklch(0.955 0.013 82);
+    --card-2:    oklch(0.895 0.020 78);
+    --line:      oklch(0.82 0.020 74);
+    --line-soft: oklch(0.86 0.018 76);
+
+    --ink:   oklch(0.25 0.016 60);
+    --ink-2: oklch(0.33 0.016 62);
+    --ink-3: oklch(0.39 0.014 64);
+    --ink-4: oklch(0.43 0.014 66);
+
+    --gold:       oklch(0.49 0.12 68);
+    --gold-dim:   oklch(0.70 0.09 76);
+    --gold-hover: oklch(0.43 0.11 64);
+    --cyan:       oklch(0.46 0.085 210);
+    --red:        oklch(0.49 0.17 32);
+
+    --red-kicker:   oklch(0.49 0.17 32);
+    --red-step:     oklch(0.49 0.17 32);
+    --red-count:    oklch(0.49 0.17 32);
+    --red-legend:   oklch(0.49 0.17 32);
+    --red-fracture: oklch(0.49 0.17 32);
+    --gold-legend:  oklch(0.49 0.12 68);
+
+    --band-bg:       oklch(0.905 0.022 78 / 0.74);
+    --band-red-bg:   oklch(0.91 0.034 40 / 0.80);
+    --band-red-line: oklch(0.83 0.06 36);
+    --card-bg:       oklch(0.955 0.013 82 / 0.86);
+    --footer-bg:     oklch(0.935 0.017 80 / 0.86);
+    --tint-gold:      oklch(0.905 0.045 82);
+    --tint-gold-line: oklch(0.68 0.10 74);
+    --tint-cyan:      oklch(0.91 0.028 205);
+    --tint-cyan-line: oklch(0.74 0.05 205);
+
+    --btn-ghost-line:       oklch(0.76 0.020 72);
+    --btn-ghost-line-hover: oklch(0.55 0.018 64);
+    --btn-ghost-ink:        oklch(0.28 0.016 62);
+    --btn-mono-line:        oklch(0.76 0.020 72);
+    --seg-line:             oklch(0.80 0.020 74);
+    --nav-link:             oklch(0.36 0.014 64);
+    --nav-link-here:        oklch(0.47 0.12 66);
+
+    --sw-gold-bg:   oklch(0.80 0.10 80);
+    --sw-gold-line: oklch(0.62 0.12 72);
+    --sw-dim-bg:    oklch(0.86 0.018 76);
+    --sw-dim-line:  oklch(0.68 0.022 70);
+    --sw-cyan-bg:   oklch(0.83 0.05 205);
+    --sw-cyan-line: oklch(0.60 0.08 205);
+    --sw-red-bg:    oklch(0.72 0.12 32);
+    --sw-red-line:  oklch(0.54 0.17 32);
+
+    --rig-glow-gold: oklch(0.84 0.10 80 / 0.50);
+    --rig-glow-cyan: oklch(0.86 0.06 205 / 0.28);
+    --beam:          oklch(0.66 0.15 70 / 0.85);
+    --beam-fade:     oklch(0.66 0.15 70 / 0);
+    --plate-1-bg:     oklch(0.91 0.05 82 / 0.92);
+    --plate-1-line:   oklch(0.64 0.13 72);
+    --plate-1-glow:   oklch(0.76 0.12 76 / 0.36);
+    --plate-2-bg:     oklch(0.925 0.020 78 / 0.9);
+    --plate-2-line:   oklch(0.72 0.06 76);
+    --plate-3-bg:     oklch(0.915 0.030 205 / 0.9);
+    --plate-3-line:   oklch(0.60 0.09 205);
+    --plate-4-bg:     oklch(0.945 0.010 82 / 0.9);
+    --plate-4-line:   oklch(0.70 0.016 70);
+    --cell-bg:        oklch(0.86 0.018 76);
+    --cell-line:      oklch(0.71 0.026 70);
+    --cell-gold-bg:   oklch(0.80 0.10 80);
+    --cell-gold-line: oklch(0.62 0.12 72);
+    --cell-cyan-bg:   oklch(0.83 0.05 205);
+    --cell-cyan-line: oklch(0.60 0.08 205);
+
+    --node-human:           oklch(0.87 0.05 32);
+    --node-human-line:      oklch(0.74 0.09 32);
+    --node-auto:            oklch(0.88 0.045 82);
+    --node-auto-line:       oklch(0.75 0.08 78);
+    --node-human-done:      oklch(0.72 0.12 32);
+    --node-human-done-line: oklch(0.56 0.17 32);
+    --node-auto-done:       oklch(0.80 0.10 80);
+    --node-auto-done-line:  oklch(0.62 0.12 72);
+    --node-human-on:        oklch(0.60 0.19 32);
+    --node-human-on-line:   oklch(0.48 0.18 32);
+    --node-human-on-glow:   oklch(0.58 0.18 32 / 0.34);
+    --node-auto-on:         oklch(0.75 0.15 74);
+    --node-auto-on-line:    oklch(0.58 0.14 68);
+    --node-auto-on-glow:    oklch(0.70 0.14 74 / 0.38);
+
+    --pipe-gold-line: oklch(0.75 0.08 78);
+
+    --pkg-ok-line:   oklch(0.68 0.10 74);
+    --pkg-bad:       oklch(0.905 0.04 32);
+    --pkg-bad-line:  oklch(0.64 0.15 32);
+    --fracture:      oklch(0.56 0.16 32);
+    --prod:          oklch(0.87 0.06 32);
+    --prod-line:     oklch(0.58 0.16 32);
+    --blast:         oklch(0.905 0.04 36);
+    --blast-line:    oklch(0.78 0.08 34);
+    --blast-ink:     oklch(0.32 0.03 40);
+
+    --rows-gap:      oklch(0.83 0.020 74 / 0.8);
+    --row-bg:        oklch(0.955 0.013 82 / 0.82);
+    --row-open:      oklch(0.92 0.028 82);
+    --row-hover-a:   oklch(0.90 0.045 82);
+    --row-hover-b:   oklch(0.94 0.017 82);
+
+    --traj-bg:      oklch(0.915 0.016 80);
+    --traj-on:      oklch(0.89 0.055 82);
+    --traj-on-line: oklch(0.66 0.11 74);
+    --traj-arrow:   oklch(0.56 0.016 70);
+    --cv-rule:      oklch(0.84 0.018 76);
+    --cv-ink:       oklch(0.38 0.014 64);
+    --chip-ink:     oklch(0.29 0.016 62);
+
+    --contact-bg:   oklch(0.90 0.04 80 / 0.9);
+    --contact-line: oklch(0.78 0.06 78);
+    --meta-line:    oklch(0.81 0.04 78);
+    --meta-key:     oklch(0.42 0.016 66);
+
+    --rail-glow: oklch(0.68 0.13 72 / 0.32);
+  }
 }

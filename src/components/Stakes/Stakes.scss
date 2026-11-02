@@ -30,14 +30,14 @@
 
 // Coprime periods: these two never re-align. That is the point of the graphic.
 .pkg-ok {
-  background: oklch(0.24 0.024 76);
-  border: 1px solid oklch(0.50 0.07 76);
+  background: var(--tint-gold);
+  border: 1px solid var(--pkg-ok-line);
   animation: desyncA 5.5s ease-in-out infinite;
 }
 
 .pkg-bad {
-  background: oklch(0.25 0.045 32);
-  border: 1px solid oklch(0.52 0.14 32);
+  background: var(--pkg-bad);
+  border: 1px solid var(--pkg-bad-line);
   animation: desyncB 7.3s ease-in-out infinite;
 }
 
@@ -61,7 +61,7 @@
     flex: 1;
     height: 1px;
     background: repeating-linear-gradient(90deg,
-      oklch(0.60 0.14 32) 0 6px,
+      var(--fracture) 0 6px,
       transparent 6px 12px);
   }
 
@@ -70,15 +70,15 @@
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: oklch(0.70 0.14 32);
+    color: var(--red-fracture);
   }
 }
 
 .prod {
   padding: 17px;
   border-radius: 11px;
-  background: oklch(0.28 0.06 32);
-  border: 1px solid oklch(0.58 0.16 32);
+  background: var(--prod);
+  border: 1px solid var(--prod-line);
   text-align: center;
   letter-spacing: 0.04em;
 }
@@ -86,11 +86,11 @@
 .blast {
   padding: 38px 36px;
   border-radius: 20px;
-  background: oklch(0.22 0.045 32);
-  border-color: oklch(0.42 0.09 32);
+  background: var(--blast);
+  border-color: var(--blast-line);
 
   .body {
-    color: oklch(0.80 0.02 40);
+    color: var(--blast-ink);
     font-size: 17px;
     max-width: 40em;
     margin: 0;

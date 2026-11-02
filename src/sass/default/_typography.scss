@@ -9,7 +9,7 @@
 
   &.gold { color: var(--gold); }
   &.cyan { color: var(--cyan); }
-  &.red  { color: oklch(0.72 0.15 32); }
+  &.red  { color: var(--red-kicker); }
   &.muted { color: var(--ink-4); }
 }
 

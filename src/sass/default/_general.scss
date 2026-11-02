@@ -25,7 +25,7 @@ a {
   text-decoration: none;
   transition: color 160ms;
 
-  &:hover { color: oklch(0.88 0.10 76); }
+  &:hover { color: var(--gold-hover); }
 }
 
 ::selection { background: oklch(0.78 0.13 76 / 0.3); }
@@ -54,13 +54,13 @@ section { padding: 88px var(--gutter); }
 }
 
 .band {
-  background: oklch(0.185 0.013 62 / 0.62);
+  background: var(--band-bg);
   border-top: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
 
   &.band-red {
-    background: oklch(0.17 0.020 32 / 0.70);
-    border-color: oklch(0.30 0.03 32);
+    background: var(--band-red-bg);
+    border-color: var(--band-red-line);
   }
 }
 
@@ -80,7 +80,7 @@ section { padding: 88px var(--gutter); }
 .card {
   padding: 26px 28px;
   border-radius: 18px;
-  background: oklch(0.215 0.014 62 / 0.8);
+  background: var(--card-bg);
   border: 1px solid var(--line);
 
   // Only UNCLASSED paragraphs get card body styling — a classed paragraph
@@ -147,22 +147,22 @@ section { padding: 88px var(--gutter); }
     color: var(--bg);
     font-weight: 700;
 
-    &:hover { background: oklch(0.88 0.10 76); color: var(--bg); }
+    &:hover { background: var(--gold-hover); color: var(--bg); }
   }
 
   &.btn-ghost {
-    border: 1px solid oklch(0.34 0.012 62);
-    color: oklch(0.90 0.008 82);
+    border: 1px solid var(--btn-ghost-line);
+    color: var(--btn-ghost-ink);
     font-weight: 500;
 
-    &:hover { border-color: oklch(0.56 0.012 62); color: var(--ink); }
+    &:hover { border-color: var(--btn-ghost-line-hover); color: var(--ink); }
   }
 }
 
 .btn-mono {
   padding: 11px 20px;
   border-radius: 999px;
-  border: 1px solid oklch(0.36 0.012 62);
+  border: 1px solid var(--btn-mono-line);
   background: transparent;
   font-family: var(--mono);
   font-size: 12px;
@@ -183,10 +183,10 @@ section { padding: 88px var(--gutter); }
   border-radius: 3px;
   flex: none;
 
-  &.gold { background: oklch(0.44 0.07 76); border: 1px solid oklch(0.62 0.09 76); }
-  &.dim  { background: oklch(0.34 0.02 70); border: 1px solid oklch(0.46 0.03 70); }
-  &.cyan { background: oklch(0.34 0.045 196); border: 1px solid oklch(0.52 0.07 196); }
-  &.red  { background: oklch(0.46 0.13 32); border: 1px solid oklch(0.62 0.16 32); }
+  &.gold { background: var(--sw-gold-bg); border: 1px solid var(--sw-gold-line); }
+  &.dim  { background: var(--sw-dim-bg); border: 1px solid var(--sw-dim-line); }
+  &.cyan { background: var(--sw-cyan-bg); border: 1px solid var(--sw-cyan-line); }
+  &.red  { background: var(--sw-red-bg); border: 1px solid var(--sw-red-line); }
 }
 
 // Disclosure panels

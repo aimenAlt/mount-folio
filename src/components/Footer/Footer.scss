@@ -4,7 +4,7 @@ footer {
   gap: 16px;
   justify-content: space-between;
   padding: 26px var(--gutter);
-  background: oklch(0.15 0.012 62 / 0.82);
+  background: var(--footer-bg);
   font-family: var(--mono);
   font-size: 11.5px;
   letter-spacing: 0.08em;
