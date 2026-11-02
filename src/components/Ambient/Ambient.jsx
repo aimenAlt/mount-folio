@@ -14,8 +14,8 @@ const MESH = {
     coolNode: 'rgba(160, 208, 222, 0.72)'
   },
   light: {
-    goldEdge: ['rgba(190, 128, 34, ', 0.55],
-    coolEdge: ['rgba(88, 112, 134, ', 0.30],
+    goldEdge: ['rgba(190, 128, 34, ', 0.44],
+    coolEdge: ['rgba(88, 112, 134, ', 0.24],
     goldNode: 'rgba(204, 140, 40, 0.85)',
     coolNode: 'rgba(78, 140, 164, 0.60)'
   }
