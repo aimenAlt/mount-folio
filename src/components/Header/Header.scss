@@ -97,10 +97,21 @@ nav {
 }
 
 @media (max-width: 700px) {
-  nav { padding: 12px 18px; gap: 8px; }
+  nav { padding: 12px 18px; gap: 6px; }
+
+  .nav-cta,
+  .nav-toggle { padding: 7px 11px; }
 
   .nav-links {
     padding-left: 18px;
     padding-right: 18px;
+  }
+}
+
+// Keeps brand, Hire me, the theme switch and Menu on one row down to 360px.
+@media (max-width: 400px) {
+  .brand {
+    font-size: 12px;
+    letter-spacing: 0.08em;
   }
 }

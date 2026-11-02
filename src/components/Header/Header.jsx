@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import useRafScroll from '../../hooks/useRafScroll';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Header.scss';
 
 /** Sticky nav. Highlights whichever section is currently on screen. */
@@ -75,6 +76,7 @@ export default function Header({ brand, nav }) {
         ))}
       </div>
       <a href="#contact" className="nav-cta" onClick={close}>Hire me</a>
+      <ThemeToggle />
       <button
         type="button"
         className="nav-toggle"

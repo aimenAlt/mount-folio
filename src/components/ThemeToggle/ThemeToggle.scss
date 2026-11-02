@@ -1,0 +1,96 @@
+// Pill switch: a gold knob slides between a moon and a sun. Which side it is on
+// and the icon colours are tokens (--toggle-*), so the theme block in
+// _variable.scss drives them; only transform and colour transition here.
+
+.theme-toggle {
+  --travel: 26px;
+
+  position: relative;
+  flex: none;
+  width: 56px;
+  height: 30px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--btn-mono-line);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 200ms;
+
+  &:hover { border-color: var(--gold-dim); }
+}
+
+.theme-knob {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 1px 4px oklch(0.15 0.012 62 / 0.28);
+  transform: translateX(calc(var(--toggle-on) * var(--travel)));
+  transition: transform 380ms var(--ease), background 200ms;
+
+  .theme-toggle:hover & { background: var(--gold-hover); }
+}
+
+.theme-icon {
+  position: absolute;
+  top: 7px;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  transition: color 380ms var(--ease);
+}
+
+.theme-moon {
+  left: 7px;
+  color: var(--toggle-moon);
+  fill: currentColor;
+}
+
+.theme-sun {
+  left: 33px;
+  color: var(--toggle-sun);
+
+  circle { fill: currentColor; }
+
+  path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+  }
+}
+
+// Phones: the nav row holds brand, Hire me, this and Menu, so it shrinks.
+@media (max-width: 700px) {
+  .theme-toggle {
+    --travel: 18px;
+
+    width: 44px;
+    height: 26px;
+  }
+
+  .theme-knob {
+    width: 20px;
+    height: 20px;
+  }
+
+  .theme-icon {
+    top: 6px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .theme-moon { left: 6px; }
+  .theme-sun { left: 24px; }
+}
+
+// The page-wide cross-fade from ThemeToggle.jsx, slowed a touch from the
+// browser default so the swap reads as deliberate.
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: var(--ease);
+}
