@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import useReducedMotion from '../../hooks/useReducedMotion';
 import { AMBIENT_CONF as CONF, LOW_POWER } from '../../utils/device';
+import { currentTheme, onThemeChange } from '../../utils/theme';
 import './Ambient.scss';
 
 /* The canvas cannot follow the CSS tokens, so each colour scheme carries its own
@@ -60,8 +61,7 @@ export default function Ambient() {
       ? Math.max(window.innerHeight, window.screen ? window.screen.height : 0)
       : 0;
 
-    const light = window.matchMedia('(prefers-color-scheme: light)');
-    let mesh = light.matches ? MESH.light : MESH.dark;
+    let mesh = MESH[currentTheme()];
 
     function build(count) {
       nodes = [];
@@ -171,21 +171,20 @@ export default function Ambient() {
     const onOrientation = () => { lockedH = 0; resize(true); };
 
     // A still canvas has to be redrawn by hand; a running one picks it up next frame.
-    const onScheme = () => {
-      mesh = light.matches ? MESH.light : MESH.dark;
+    const offTheme = onThemeChange(() => {
+      mesh = MESH[currentTheme()];
       if (reduced) draw(0);
-    };
+    });
 
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('orientationchange', onOrientation, { passive: true });
-    light.addEventListener('change', onScheme);
 
     if (reduced) {
       draw(0);
       return () => {
         window.removeEventListener('resize', onResize);
         window.removeEventListener('orientationchange', onOrientation);
-        light.removeEventListener('change', onScheme);
+        offTheme();
       };
     }
 
@@ -220,7 +219,7 @@ export default function Ambient() {
       if (raf) cancelAnimationFrame(raf);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('orientationchange', onOrientation);
-      light.removeEventListener('change', onScheme);
+      offTheme();
       document.removeEventListener('visibilitychange', onVisibility);
     };
   }, [reduced]);
