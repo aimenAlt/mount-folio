@@ -61,7 +61,7 @@
     "lead": {
       "heading": "I also built the way it ships.",
       "sub": "The shared library publishes often, and the site has to pick up every release. Here is what that used to cost, and the GitHub Actions automation I built to stop paying it.",
-      "note": "My manager and our technical program manager treat me as the team's CI/CD expert, and I'm the primary CI/CD reviewer across frontend teams."
+      "note": "I'm our team's CI/CD subject-matter expert and primary CI/CD reviewer."
     },
     "kicker": "Case study 01",
     "meta": "GoDaddy · cross-repo",
