@@ -12,7 +12,7 @@
   "hero": {
     "kicker": "Software engineer · Austin, TX (Remote)",
     "headline": ["I build the whole site,", "from the React component", "to the server behind it."],
-    "lede": "Software engineer with 5 years building customer-facing web apps in React, TypeScript, Next.js and Node.js. At GoDaddy, about half my work is React and TypeScript and half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions release automation that ships it. On my own, I founded Ramblett, a capture-first organizer for iOS, Android and web.",
+    "lede": "Software engineer with 5 years building customer-facing web apps in React, TypeScript, Next.js and Node.js. At GoDaddy, about half my work is React and TypeScript and half is the server-rendered Node.js layer behind them, on a site that serves three brands. I also built the GitHub Actions release automation that ships it. On my own, I designed and built Ramblett, a capture-first AI organizer for iOS, Android and web.",
     "legend": [
       { "swatch": "gold", "label": "Shared packages I maintain" },
       { "swatch": "dim", "label": "Rendering layer" },
@@ -122,11 +122,11 @@
 
   "projects": [
     {
-      "kicker": "Independent · founder",
-      "title": "Ramblett: one codebase, three platforms",
-      "body": "I defined and shipped Ramblett, a capture-first organizer for notes, to-dos and events, on one Expo and React codebase for iOS, Android and web, backed by 18 Supabase edge functions and 40 row-level-secured Postgres tables. Deterministic intent, date and PII-redaction code wraps a single bounded LLM call with provider failover, and a 326-case eval behind 16 CI gates picked the model on measured cost (under $0.0005 per capture) and latency. I directed the build end to end with Claude Code across 1,600+ commits.",
-      "tags": ["Expo", "React Native", "Supabase", "Postgres · RLS", "LLM evals"],
-      "link": { "href": "https://app.ramblett.com", "label": "app.ramblett.com" }
+      "kicker": "Independent product",
+      "title": "Ramblett",
+      "body": "Designed and shipped a capture-first organizer: type or speak anything into one box and AI turns it into notes, to-dos and calendar events. One Expo/React Native codebase for iOS, Android and web; in private beta. The backend is on Supabase: 66 Postgres tables, every one under row-level security, and 28 edge functions. The AI pipeline is built around one schema-validated LLM call, with phone/email/card masking first, OpenAI primary, Anthropic failover and a circuit breaker. Every model and prompt change is gated on a 397-case eval with 17 CI gates, including mean cost at or under $0.0005 per capture and median latency under 2 seconds. Capture is offline-first, with a client-UUID outbox and idempotent upserts. Built with AI coding agents working under my written rules; I own the product, architecture and cost decisions.",
+      "tags": ["Expo", "React Native", "Supabase", "Postgres · RLS", "LLM evals", "Offline-first"],
+      "link": { "href": "https://ramblett.com", "label": "ramblett.com" }
     },
     {
       "kicker": "Commerce",
@@ -175,7 +175,7 @@
       "Full stack, plus the pipeline"
     ],
     "cv": [
-      { "org": "Ramblett", "when": "2026", "role": "Founder, product and technical lead · independent" },
+      { "org": "Ramblett", "when": "2026 – Present", "role": "Independent product · AI organizer for iOS, Android and web" },
       { "org": "GoDaddy", "when": "Jan 2025 — now", "role": "Software Development Engineer II · Remote" },
       { "org": "GoDaddy", "when": "Jul 2022 — Jan 2025", "role": "Software Development Engineer · Remote" },
       { "org": "Revature", "when": "Sep 2021 — May 2022", "role": "Software Engineer · Verizon engagement" }
